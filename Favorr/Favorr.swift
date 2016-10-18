@@ -6,18 +6,12 @@
 //  Copyright © 2016 Livebuzz, Inc. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import AdSupport
 
-//public protocol DetailViewControllerDelegate: class {
-//    func didFinishTask(status:String?)
-//}
-
 public class Favorr: NSObject {
-    
-//    public weak var delegate:DetailViewControllerDelegate?
-    
-    
+
     //MARK: Local Variable
     public var apiKey: String?
     
@@ -345,38 +339,6 @@ public class Favorr: NSObject {
         return adView
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     // send log show and click
     func send_log(trackId:Int, unitId:String?, banner_log_id:String?, action:String){
         print("update_session")
@@ -420,6 +382,11 @@ public class Favorr: NSObject {
             params["systemName"] = systemName
         }
         
+        // sessionId
+        if let sessionId = Favorr.sharedInstance.sessionId {
+            params["sessionId"] = sessionId
+        }
+        
         // add trackId
         params["trackId"] = String(trackId)
         params["action"] = action
@@ -457,98 +424,7 @@ public class Favorr: NSObject {
         }
         task.resume()
     }
-    
-    
-    
-    
-    
-    
-    //
-    //    // check apiKey
-    //    func check_apiKey(apiKey:String){
-    //        print("update_session")
-    //
-    //        // get data from favorr rest api
-    //
-    //        // prepare parameters
-    //        var params = [String : String]()
-    //        if let apiKey = Favorr.sharedInstance.apiKey {
-    //            params["apiKey"] = apiKey
-    //        }
-    //        print("params:\(params)")
-    //
-    //        var request = URLRequest(url: URL(string: "https://cp1.favorr.io/check_apikey")!)
-    //        request.httpMethod = "POST"
-    //
-    //        do {
-    //            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
-    //        } catch {
-    //            print("Dim background error")
-    //            return;
-    //        }
-    //
-    //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    //        request.addValue("application/json", forHTTPHeaderField: "Accept")
-    //        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-    //            if error != nil {
-    //                // show error
-    //                print(error!.localizedDescription)
-    //                return
-    //            }
-    //
-    //            do {
-    //                if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
-    //                {
-    //                    //Implement your logic
-    //                    print(json)
-    //                }
-    //            } catch {
-    //                print("error in JSONSerialization")
-    //            }
-    //        }
-    //        task.resume()
-    //    }
-    //
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

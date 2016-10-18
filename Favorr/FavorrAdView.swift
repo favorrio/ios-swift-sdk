@@ -6,13 +6,10 @@
 //  Copyright © 2016 Livebuzz, Inc. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import AdSupport
 import StoreKit
-
-//public protocol DetailViewControllerDelegate: class {
-//    func didFinishTask(status:String?)
-//}
 
 public protocol FavorrAdViewDelegate: class {
     func FavorrAdViewDelegateDidReceiveAd(parameters:[String:Any]?)
