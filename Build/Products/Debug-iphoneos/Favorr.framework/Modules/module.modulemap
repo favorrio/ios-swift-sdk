@@ -1,0 +1,10 @@
+framework module Favorr {
+  umbrella header "Favorr.h"
+
+  export *
+  module * { export * }
+}
+
+module Favorr.Swift {
+    header "Favorr-Swift.h"
+}

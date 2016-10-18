@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/kouohhashi/Documents/iPhone/Favorr/Build/Products/Debug-iphoneos/Favorr.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Favorr-Swift.h",
+          'external-contents': "/Users/kouohhashi/Documents/iPhone/Favorr/Build/Products/Debug-iphoneos/Favorr.framework/Headers/Favorr-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Favorr.h",
+          'external-contents': "/Users/kouohhashi/Documents/iPhone/Favorr/Favorr/Favorr.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/kouohhashi/Documents/iPhone/Favorr/Build/Products/Debug-iphoneos/Favorr.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/kouohhashi/Documents/iPhone/Favorr/Build/Intermediates/Favorr.build/Debug-iphoneos/Favorr.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

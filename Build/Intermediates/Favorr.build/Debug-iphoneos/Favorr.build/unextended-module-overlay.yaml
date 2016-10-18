@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/kouohhashi/Documents/iPhone/Favorr/Build/Products/Debug-iphoneos/Favorr.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/kouohhashi/Documents/iPhone/Favorr/Build/Intermediates/Favorr.build/Debug-iphoneos/Favorr.build/unextended-module.modulemap',
+    }]
+  }]
+}
