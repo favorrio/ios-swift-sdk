@@ -52,7 +52,8 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         super.init(frame: frame)
         
         // framework bundle
-        let frameWorkBundle = Bundle(for: type(of: self))
+        let frameWorkBundle = Bundle(identifier: "io.favorr.sdk.bundle")
+        // let frameWorkBundle = Bundle(for: type(of: self))
         
         // setup banner
         self.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
@@ -322,7 +323,8 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         }
         
         // framework bundle
-        let frameWorkBundle = Bundle(for: type(of: self))
+        let frameWorkBundle = Bundle(identifier: "io.favorr.sdk.bundle")
+        // let frameWorkBundle = Bundle(for: type(of: self))
         
         // install icon
         DispatchQueue.main.async {
