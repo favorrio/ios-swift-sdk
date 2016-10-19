@@ -110,7 +110,8 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "Favorr/**/*.png"
+  s.resources = "Favorr/FavorrAssets.xcassets/**/*.png"
+  # s.resources = "Favorr/**/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
