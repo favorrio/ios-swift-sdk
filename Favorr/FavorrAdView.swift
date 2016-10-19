@@ -52,7 +52,8 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         super.init(frame: frame)
         
         // framework bundle
-        let frameWorkBundle = Bundle(identifier: "io.favorr.sdk.bundle")
+        let frameWorkBundle = Bundle(for: Favorr.self)
+//        let frameWorkBundle = Bundle(identifier: "io.favorr.sdk.bundle")
         // let frameWorkBundle = Bundle(for: type(of: self))
         
         // setup banner
@@ -323,7 +324,8 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         }
         
         // framework bundle
-        let frameWorkBundle = Bundle(identifier: "io.favorr.sdk.bundle")
+        let frameWorkBundle = Bundle(for: Favorr.self)
+        // let frameWorkBundle = Bundle(identifier: "io.favorr.sdk.bundle")
         // let frameWorkBundle = Bundle(for: type(of: self))
         
         // install icon
