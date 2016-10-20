@@ -77,7 +77,6 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         
         // add title label
         let title_label_w =  self.frame.size.width - 154; // - 10 - 38 - 10 - 10 - 76 - 10
-        print("title_label_w:\(title_label_w)")
         let title_label_x = 10 + (app_icon?.frame.size.width)! + 10
         title_label = UILabel(frame: CGRect(x: title_label_x, y: 12, width: title_label_w, height: 16))
         title_label?.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
@@ -142,7 +141,6 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                                   width:(activityIndicator?.frame.size.width)!,
                                   height:(activityIndicator?.frame.size.height)! )
         
-        print("activityRect:\(activityRect)")
         
         activityIndicator?.frame = activityRect
         activityIndicator?.isHidden = true
@@ -235,15 +233,12 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             // as error
             self.delegate?.FavorrAdViewDelegateDidReceiveError(error: requestAdError.jsonError, view: self)
             
-            print("Dim background error")
             return;
         }
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            print("json completed 2222222222")
             
             // stop indicator
             DispatchQueue.main.async {
@@ -253,7 +248,7 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             
             if error != nil {
                 // show error
-                print(error!.localizedDescription)
+                // print(error!.localizedDescription)
                 
                 // kick delegate method
                 // as error
@@ -272,7 +267,7 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     
                     if let result_code = json["result_code"] as? String {
                         if result_code != "success" {
-                            print("server return error")
+                            // print("server return error")
                             
                             // kick delegate method
                             // as error
@@ -300,7 +295,7 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     }
 
                 } else {
-//                    print("Error JSON MAYBE?")
+                    
                     // kick delegate method
                     // as error
                     self.delegate?.FavorrAdViewDelegateDidReceiveError(error: requestAdError.jsonError, view: self)
