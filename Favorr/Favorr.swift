@@ -26,6 +26,8 @@ public class Favorr: NSObject {
     
     var sessionId:String?
     
+    public var ad_available = false
+    
     //MARK: Shared Instance
     public static let sharedInstance : Favorr = {
         let instance = Favorr()
@@ -199,6 +201,10 @@ public class Favorr: NSObject {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
         } catch {
+            
+            // set ad_available false
+            Favorr.sharedInstance.ad_available = false
+            
             completion(nil, apiKeyError.jsonError)
             return;
         }
@@ -209,6 +215,10 @@ public class Favorr: NSObject {
             if error != nil {
                 // show error
 //                print(error!.localizedDescription)
+                
+                // set ad_available false
+                Favorr.sharedInstance.ad_available = false
+                
                 completion(nil, apiKeyError.networkError)
                 return
             }
@@ -220,11 +230,20 @@ public class Favorr: NSObject {
                     if let sessionId = json["sessionId"] as? String {
                         Favorr.sharedInstance.sessionId = sessionId
                     }
+                    
+                    if let ad_available = json["ad_available"] as? Bool {
+                        Favorr.sharedInstance.ad_available = ad_available
+                    }
+                    
                     completion(json, nil)
                 }
             } catch {
                 // make session check speed slow
                 Favorr.sharedInstance.slowSession()
+                
+                
+                // set ad_available false
+                Favorr.sharedInstance.ad_available = false
                 
                 completion(nil, apiKeyError.jsonError)
                 return;
@@ -274,6 +293,10 @@ public class Favorr: NSObject {
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
         } catch {
             // print("Dim background error")
+            
+            // set ad_available false
+            Favorr.sharedInstance.ad_available = false
+            
             return;
         }
         
@@ -283,19 +306,30 @@ public class Favorr: NSObject {
             if error != nil {
                 // show error
 //                print(error!.localizedDescription)
+                
+                // set ad_available false
+                Favorr.sharedInstance.ad_available = false
+                
                 return
             }
             
             do {
-                if (try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]) != nil
+                if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
                 {
                     //Implement your logic
 //                    print(json)
+                    
+                    if let ad_available = json["ad_available"] as? Bool {
+                        Favorr.sharedInstance.ad_available = ad_available
+                    }
                 }
             } catch {
                 
                 // make session check speed slow
                 Favorr.sharedInstance.slowSession()
+                
+                // set ad_available false
+                Favorr.sharedInstance.ad_available = false
                 
                 // print("error in JSONSerialization 4")
             }
