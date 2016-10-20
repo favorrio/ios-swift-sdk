@@ -48,13 +48,14 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     var trackId = 0
     var banner_log_id:String?
     
+    var storeViewController:SKStoreProductViewController?
+    var storeReadyFlg = false
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
         // framework bundle
         let frameWorkBundle = Bundle(for: Favorr.self)
-//        let frameWorkBundle = Bundle(identifier: "io.favorr.sdk.bundle")
-        // let frameWorkBundle = Bundle(for: type(of: self))
         
         // setup banner
         self.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
@@ -147,7 +148,6 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         activityIndicator?.isHidden = true
         self.addSubview(activityIndicator!)
 
-        
         // make it touchable
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapBanner(_:)))
         self.addGestureRecognizer(tapGesture)
@@ -177,6 +177,9 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         star_icon_4?.isHidden = true
         star_icon_5?.isHidden = true
         review_count_label?.isHidden = true
+        
+        // init store ready flg
+        self.storeReadyFlg = false
         
         // show indicator
         self.isHidden = false
@@ -289,8 +292,6 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                         self.drawAd(params: ad_info as! [String : Any])
                         
                     } else {
-                        print("something must be wrong 2")
-                        
                         
                         // kick delegate method
                         // as error
@@ -299,14 +300,12 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     }
 
                 } else {
-                    print("Error JSON MAYBE?")
+//                    print("Error JSON MAYBE?")
                     // kick delegate method
                     // as error
                     self.delegate?.FavorrAdViewDelegateDidReceiveError(error: requestAdError.jsonError, view: self)
                 }
             } catch {
-                print("error in JSONSerialization 1")
-                print("Error JSON MAYBE?")
                 // kick delegate method
                 // as error
                 self.delegate?.FavorrAdViewDelegateDidReceiveError(error: requestAdError.jsonError, view: self)
@@ -467,6 +466,18 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         if let trackId = params["trackId"] as? Int {
             self.trackId = trackId
             Favorr.sharedInstance.send_log(trackId: trackId, unitId: self.unitId, banner_log_id: self.banner_log_id, action: "show")
+            
+            // prepare store
+            storeViewController = SKStoreProductViewController()
+            storeViewController?.delegate = self
+            
+            // load product here
+            let parameters = [ SKStoreProductParameterITunesItemIdentifier : trackId]
+            self.storeViewController?.loadProduct(withParameters: parameters) { (flg, error) in
+                if flg == true {
+                    self.storeReadyFlg = true
+                }
+            }
         }
         
         // kick delegate method
@@ -477,13 +488,11 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     // download icon
     func download_icon(icon_url:String){
         
-        print("icon_url:\(icon_url)")
-        
         let url = URL(string: icon_url)
         let request = URLRequest(url: url!)
         let task = URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) -> Void in
             if error != nil {
-                print("some error!")
+//                print("some error!")
             } else {
                 if let bach = UIImage(data: data!) {
                     DispatchQueue.main.async {
@@ -500,42 +509,71 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     
     // banner was tapped
     func tapBanner(_ sender: UITapGestureRecognizer) {
-        print("tapBanner, trackId:\(self.trackId)")
+//        print("tapBanner, trackId:\(self.trackId)")
         
         if self.trackId == 0 {
+//            print("asdfasdfsa trackId is 0")
             return
         }
         
         if let banner_log_id = self.banner_log_id {
-
-            let storeViewController = SKStoreProductViewController()
-            storeViewController.delegate = self
             
-            let parameters = [ SKStoreProductParameterITunesItemIdentifier : trackId]
-            storeViewController.loadProduct(withParameters: parameters) { (flg, error) in
-                print("storeViewController, flg:\(flg), error:\(error)")
-                if flg == true {
-                    print("showAppstore 2")
+            if self.storeReadyFlg == true {
+                
+                self.rootViewController?.present(self.storeViewController!, animated: true, completion: {
                     
-                    self.rootViewController?.present(storeViewController, animated: true, completion: {
-                        print("storeViewController shown")
-                        
-                        // visit log
-                        Favorr.sharedInstance.send_log(trackId: self.trackId, unitId: self.unitId, banner_log_id: banner_log_id, action: "click")
-                    })
-                }
+                    // visit log
+                    Favorr.sharedInstance.send_log(trackId: self.trackId, unitId: self.unitId, banner_log_id: banner_log_id, action: "click")
+                })
             }
             
+//            let parameters = [ SKStoreProductParameterITunesItemIdentifier : trackId]
+//            storeViewController.loadProduct(withParameters: parameters) { (flg, error) in
+//                print("storeViewController, flg:\(flg), error:\(error)")
+//                if flg == true {
+//                    print("showAppstore 2")
+//                    
+//                    self.rootViewController?.present(self.storeViewController, animated: true, completion: {
+//                        print("storeViewController shown")
+//                        
+//                        // visit log
+//                        Favorr.sharedInstance.send_log(trackId: self.trackId, unitId: self.unitId, banner_log_id: banner_log_id, action: "click")
+//                    })
+//                }
+//            }
+            
         } else {
-            print("something must be wrong 1")
+            // print("something must be wrong 1")
         }
     }
     
     // delegate method
     public func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
-        print("productViewControllerDidFinish")
+//        print("productViewControllerDidFinish")
         viewController.dismiss(animated: true) {
-            print("SKStoreProductViewController dismissed")
+//            print("SKStoreProductViewController dismissed")
+            
+            self.storeReadyFlg = false
+            if self.trackId == 0 {
+                self.requestAd()
+                return
+            }
+            
+            // prepare store again
+            self.storeViewController = SKStoreProductViewController()
+            self.storeViewController?.delegate = self
+            
+            // load product here
+            let parameters = [ SKStoreProductParameterITunesItemIdentifier : self.trackId]
+            self.storeViewController?.loadProduct(withParameters: parameters) { (flg, error) in
+//                print("storeViewController, flg:\(flg), error:\(error)")
+                if flg == true {
+//                    print("showAppstore 2")
+                    self.storeReadyFlg = true
+                } else {
+//                    print("error: \(error)")
+                }
+            }
         }
     }
 

@@ -41,7 +41,7 @@ public class Favorr: NSObject {
     
     // Favorr as a session tracker
     // init with apiKey
-    public func initWithApiKey(apiKey:String, completion:@escaping ((String?, Error?) -> Void)){
+    public func initWithApiKey(apiKey:String, completion:@escaping (([String: Any]?, Error?) -> Void)){
         
         if apiKey == "" {
             completion(nil, apiKeyError.apiKeyNotFound)
@@ -63,13 +63,13 @@ public class Favorr: NSObject {
         
         
         // send 1st log
-        updateSessionWithCompletion { (result_str, err) in
+        updateSessionWithCompletion { (results, err) in
             if err != nil {
                 completion(nil, err)
                 return
             }
             
-            completion("sucess", nil)
+            completion(results, nil)
             
             // start session
             Favorr.sharedInstance.startSession(fromInit: true)
@@ -92,10 +92,8 @@ public class Favorr: NSObject {
     // set timer
     func startSession(fromInit:Bool){
         
-        print("startSession")
-        
         if Favorr.sharedInstance.pingTimer == nil {
-            print("send first session update 1")
+            
             // create timer
             createTimer(interval: 10)
             
@@ -135,7 +133,6 @@ public class Favorr: NSObject {
     
     // stop timer
     func stopSession(){
-        print("stopSession")
         if let pingTimer = Favorr.sharedInstance.pingTimer {
             pingTimer.invalidate()
         }
@@ -155,8 +152,7 @@ public class Favorr: NSObject {
     }
     
     // update session status with callback
-    func updateSessionWithCompletion( completion:@escaping ((String?, Error?) -> Void)){
-        print("update_session")
+    func updateSessionWithCompletion( completion:@escaping (([String: Any]?, Error?) -> Void)){
         
         // get data from favorr rest api
         
@@ -195,8 +191,7 @@ public class Favorr: NSObject {
         if let sessionId = Favorr.sharedInstance.sessionId {
             params["sessionId"] = sessionId
         }
-        
-        print("params:\(params)")
+        // print("params:\(params)")
         
         var request = URLRequest(url: URL(string: "https://cp1.favorr.io/update_session")!)
         request.httpMethod = "POST"
@@ -204,7 +199,6 @@ public class Favorr: NSObject {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
         } catch {
-            print("Dim background error")
             completion(nil, apiKeyError.jsonError)
             return;
         }
@@ -214,7 +208,7 @@ public class Favorr: NSObject {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 // show error
-                print(error!.localizedDescription)
+//                print(error!.localizedDescription)
                 completion(nil, apiKeyError.networkError)
                 return
             }
@@ -223,15 +217,12 @@ public class Favorr: NSObject {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
                 {
                     //Implement your logic
-                    print(json)
                     if let sessionId = json["sessionId"] as? String {
                         Favorr.sharedInstance.sessionId = sessionId
                     }
-                    
+                    completion(json, nil)
                 }
             } catch {
-                print("error in JSONSerialization 2 response:\(response), data:\(data)")
-                
                 // make session check speed slow
                 Favorr.sharedInstance.slowSession()
                 
@@ -244,7 +235,6 @@ public class Favorr: NSObject {
     
     // update session status
     func updateSession(){
-        print("update_session")
         
         // get data from favorr rest api
         
@@ -275,8 +265,7 @@ public class Favorr: NSObject {
         if let systemName = Favorr.sharedInstance.systemName {
             params["systemName"] = systemName
         }
-        
-        print("params:\(params)")
+        // print("params:\(params)")
         
         var request = URLRequest(url: URL(string: "https://cp1.favorr.io/update_session")!)
         request.httpMethod = "POST"
@@ -284,7 +273,7 @@ public class Favorr: NSObject {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
         } catch {
-            print("Dim background error")
+            // print("Dim background error")
             return;
         }
         
@@ -293,22 +282,22 @@ public class Favorr: NSObject {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 // show error
-                print(error!.localizedDescription)
+//                print(error!.localizedDescription)
                 return
             }
             
             do {
-                if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
+                if (try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]) != nil
                 {
                     //Implement your logic
-                    print(json)
+//                    print(json)
                 }
             } catch {
                 
                 // make session check speed slow
                 Favorr.sharedInstance.slowSession()
                 
-                print("error in JSONSerialization 4")
+                // print("error in JSONSerialization 4")
             }
         }
         task.resume()
@@ -318,18 +307,15 @@ public class Favorr: NSObject {
     
     // applicationDidBecomeActive
     func applicationDidBecomeActive(){
-        print("applicationDidBecomeActive")
-        // stat Session
+        // print("applicationDidBecomeActive")
         startSession(fromInit: false)
     }
     
     // applicationWillResignActive
     func applicationWillResignActive(){
-        print("applicationWillResignActive")
+        // print("applicationWillResignActive")
         stopSession()
     }
-    
-    
     
     // Favorr as a ad network
     // init ad view
@@ -341,7 +327,6 @@ public class Favorr: NSObject {
     
     // send log show and click
     func send_log(trackId:Int, unitId:String?, banner_log_id:String?, action:String){
-        print("update_session")
         
         // get data from favorr rest api
         
@@ -390,8 +375,7 @@ public class Favorr: NSObject {
         // add trackId
         params["trackId"] = String(trackId)
         params["action"] = action
-        
-        print("params:\(params)")
+        // print("params:\(params)")
         
         var request = URLRequest(url: URL(string: "https://cp1.favorr.io/banner_log")!)
         request.httpMethod = "POST"
@@ -399,7 +383,7 @@ public class Favorr: NSObject {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
         } catch {
-            print("Dim background error")
+//            print("Dim background error")
             return;
         }
         
@@ -408,19 +392,19 @@ public class Favorr: NSObject {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 // show error
-                print(error!.localizedDescription)
+//                print(error!.localizedDescription)
                 return
             }
             
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
-                {
-                    //Implement your logic
-                    print(json)
-                }
-            } catch {
-                print("error in JSONSerialization 5")
-            }
+//            do {
+//                if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
+//                {
+////                    //Implement your logic
+////                    print(json)
+//                }
+//            } catch {
+//                print("error in JSONSerialization 5")
+//            }
         }
         task.resume()
     }
