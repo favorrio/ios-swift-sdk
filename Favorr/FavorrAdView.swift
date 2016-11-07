@@ -382,19 +382,19 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             var star_empty_icon = "star_empty_icon"
             var star_half_icon = "star_half_icon"
             var star_full_icon = "star_full_icon"
-            if installButtonColorType == .white {
+            if starColorType == .white {
                 star_empty_icon = "star_empty_icon_white"
                 star_half_icon = "star_half_icon_white"
                 star_full_icon = "star_full_icon_white"
-            } else if installButtonColorType == .black {
+            } else if starColorType == .black {
                 star_empty_icon = "star_empty_icon"
                 star_half_icon = "star_half_icon"
                 star_full_icon = "star_full_icon"
-            } else if installButtonColorType == .orange {
+            } else if starColorType == .orange {
                 star_empty_icon = "star_empty_icon_orange"
                 star_half_icon = "star_half_icon_orange"
                 star_full_icon = "star_full_icon_orange"
-            } else if installButtonColorType == .green {
+            } else if starColorType == .green {
                 star_empty_icon = "star_empty_icon_green"
                 star_half_icon = "star_half_icon_green"
                 star_full_icon = "star_full_icon_green"
