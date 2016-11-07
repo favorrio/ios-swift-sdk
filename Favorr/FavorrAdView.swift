@@ -349,7 +349,7 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             } else if installButtonColorType == .black {
                 install_icon_image = "install_icon_black"
             } else if installButtonColorType == .green {
-                install_icon_image = "install_icon_greens"
+                install_icon_image = "install_icon"
             } else if installButtonColorType == .orange {
                 install_icon_image = "install_icon_orange"
             }
