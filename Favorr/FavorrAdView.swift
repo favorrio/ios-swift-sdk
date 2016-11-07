@@ -27,6 +27,14 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         case apiKeyError
     }
     
+    // color
+    public enum FavorrImageColorType {
+        case white
+        case black
+        case orange
+        case green
+    }
+    
     public weak var delegate:FavorrAdViewDelegate?
     
     public var unitId: String?
@@ -51,11 +59,14 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     var storeViewController:SKStoreProductViewController?
     var storeReadyFlg = false
     
+    var favorrTextColor:UIColor = UIColor.black
+    var installButtonColorType = FavorrImageColorType.green
+    var starColorType = FavorrImageColorType.black
+    
+    var banner_params:[String : Any]!
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        // framework bundle
-        let frameWorkBundle = Bundle(for: Favorr.self)
         
         // setup banner
         self.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
@@ -71,7 +82,6 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         // add install button
         let install_icon_x = frame.size.width - 10 - 76
         install_icon = UIImageView(frame: CGRect(x: install_icon_x, y: 12, width: 76, height: 34))
-        install_icon?.image = UIImage(named: "install_icon", in: frameWorkBundle, compatibleWith: nil)
         install_icon?.isHidden = true
         self.addSubview(install_icon!)
         
@@ -224,6 +234,7 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         
         var request = URLRequest(url: URL(string: "https://cp1.favorr.io/request_ad")!)
         request.httpMethod = "POST"
+
         
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
@@ -265,6 +276,9 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
                 {
                     
+                    print("json:\(json)")
+                    
+                    
                     if let result_code = json["result_code"] as? String {
                         if result_code != "success" {
                             // print("server return error")
@@ -284,7 +298,9 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     if let ad_info = json["ad_info"] {
                         
                         // draw banner
-                        self.drawAd(params: ad_info as! [String : Any])
+                        self.banner_params = ad_info as! [String : Any]
+                        // self.drawAd(params: ad_info as! [String : Any])
+                        self.drawAd()
                         
                     } else {
                         
@@ -295,12 +311,13 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     }
 
                 } else {
-                    
+
                     // kick delegate method
                     // as error
                     self.delegate?.FavorrAdViewDelegateDidReceiveError(error: requestAdError.jsonError, view: self)
                 }
             } catch {
+                
                 // kick delegate method
                 // as error
                 self.delegate?.FavorrAdViewDelegateDidReceiveError(error: requestAdError.jsonError, view: self)
@@ -310,174 +327,219 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     }
     
     // draw ad
-    func drawAd(params:[String: Any]){
+    // func drawAd(params:[String: Any]){
+    func drawAd(){
         
-        // set banner_log_id
-        if let val = params["banner_log_id"] as? String {
-            self.banner_log_id = val
-        }
-        
-        // framework bundle
-        let frameWorkBundle = Bundle(for: Favorr.self)
-        // let frameWorkBundle = Bundle(identifier: "io.favorr.sdk.bundle")
-        // let frameWorkBundle = Bundle(for: type(of: self))
-        
-        // install icon
-        DispatchQueue.main.async {
-            self.install_icon?.isHidden = false
-        }
-        
-        // add title label
-        if let val = params["title"] as? String {
-            DispatchQueue.main.async {
-                self.title_label?.text = val
-                self.title_label?.isHidden = false
-            }
-        }
-        
-        // add price label
-        if let val = params["price"] as? String {
-            DispatchQueue.main.async {
-                self.price_label?.text = val
-                self.price_label?.isHidden = false
-            }
-        }
-        
-        // stars 1
-        if let val = params["averageUserRatingForCurrentVersion"] as? Float {
-            if val < 0.5 {
-                DispatchQueue.main.async {
-                    self.star_icon_1?.image = UIImage(named: "star_empty_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_1?.isHidden = false
-                }
-            } else if val < 1.0 {
-                DispatchQueue.main.async {
-                    self.star_icon_1?.image = UIImage(named: "star_half_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_1?.isHidden = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.star_icon_1?.image = UIImage(named: "star_full_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_1?.isHidden = false
-                }
-            }
-        }
-        
-        // stars 2
-        if let val = params["averageUserRatingForCurrentVersion"] as? Float {
-            if val < 1.5 {
-                DispatchQueue.main.async {
-                    self.star_icon_2?.image = UIImage(named: "star_empty_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_2?.isHidden = false
-                }
-            } else if val < 2.0 {
-                DispatchQueue.main.async {
-                    self.star_icon_2?.image = UIImage(named: "star_half_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_2?.isHidden = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.star_icon_2?.image = UIImage(named: "star_full_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_2?.isHidden = false
-                }
-            }
-        }
-        
-        // stars 3
-        if let val = params["averageUserRatingForCurrentVersion"] as? Float {
-            if val < 2.5 {
-                DispatchQueue.main.async {
-                    self.star_icon_3?.image = UIImage(named: "star_empty_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_3?.isHidden = false
-                }
-            } else if val < 3.0 {
-                DispatchQueue.main.async {
-                    self.star_icon_3?.image = UIImage(named: "star_half_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_3?.isHidden = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.star_icon_3?.image = UIImage(named: "star_full_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_3?.isHidden = false
-                }
-            }
-        }
-        
-        // stars 4
-        if let val = params["averageUserRatingForCurrentVersion"] as? Float {
-            if val < 3.5 {
-                DispatchQueue.main.async {
-                    self.star_icon_4?.image = UIImage(named: "star_empty_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_4?.isHidden = false
-                }
-            } else if val < 4.0 {
-                DispatchQueue.main.async {
-                    self.star_icon_4?.image = UIImage(named: "star_half_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_4?.isHidden = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.star_icon_4?.image = UIImage(named: "star_full_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_4?.isHidden = false
-                }
-            }
-        }
-        
-        // stars 5
-        if let val = params["averageUserRatingForCurrentVersion"] as? Float {
-            if val < 4.5 {
-                DispatchQueue.main.async {
-                    self.star_icon_5?.image = UIImage(named: "star_empty_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_5?.isHidden = false
-                }
-            } else if val < 5.0 {
-                DispatchQueue.main.async {
-                    self.star_icon_5?.image = UIImage(named: "star_half_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_5?.isHidden = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.star_icon_5?.image = UIImage(named: "star_full_icon", in: frameWorkBundle, compatibleWith: nil)
-                    self.star_icon_5?.isHidden = false
-                }
-            }
-        }
-        
-        // add review count label
-        if let val = params["userRatingCountForCurrentVersion"] as? Int {
-            let str = String(val)
-            DispatchQueue.main.async {
-                self.review_count_label?.text = "("+str+")"
-                self.review_count_label?.isHidden = false
-            }
-        }
-        
-        // start downloading icon
-        if let val = params["icon"] as? String {
-            download_icon(icon_url: val)
-        }
-        
-        // send log
-        if let trackId = params["trackId"] as? Int {
-            self.trackId = trackId
-            Favorr.sharedInstance.send_log(trackId: trackId, unitId: self.unitId, banner_log_id: self.banner_log_id, action: "show")
+        if let params = self.banner_params {
             
-            // prepare store
-            storeViewController = SKStoreProductViewController()
-            storeViewController?.delegate = self
+            // set banner_log_id
+            if let val = params["banner_log_id"] as? String {
+                self.banner_log_id = val
+            }
             
-            // load product here
-            let parameters = [ SKStoreProductParameterITunesItemIdentifier : trackId]
-            self.storeViewController?.loadProduct(withParameters: parameters) { (flg, error) in
-                if flg == true {
-                    self.storeReadyFlg = true
+            // framework bundle
+            let frameWorkBundle = Bundle(for: Favorr.self)
+            
+            // install icon
+            
+            // stars
+            var install_icon_image = "install_icon"
+            if installButtonColorType == .white {
+                install_icon_image = "install_icon_white"
+            } else if installButtonColorType == .black {
+                install_icon_image = "install_icon_black"
+            } else if installButtonColorType == .green {
+                install_icon_image = "install_icon_greens"
+            } else if installButtonColorType == .orange {
+                install_icon_image = "install_icon_orange"
+            }
+            
+            DispatchQueue.main.async {
+                self.install_icon?.image = UIImage(named: install_icon_image, in: frameWorkBundle, compatibleWith: nil)
+                self.install_icon?.isHidden = false
+            }
+            
+            // add title label
+            if let val = params["title"] as? String {
+                DispatchQueue.main.async {
+                    self.title_label?.text = val
+                    self.title_label?.isHidden = false
+                    self.title_label?.textColor = self.favorrTextColor
                 }
             }
+            
+            // add price label
+            if let val = params["price"] as? String {
+                DispatchQueue.main.async {
+                    self.price_label?.text = val
+                    self.price_label?.isHidden = false
+                    self.price_label?.textColor = self.favorrTextColor
+                }
+            }
+            
+            
+            // stars
+            var star_empty_icon = "star_empty_icon"
+            var star_half_icon = "star_half_icon"
+            var star_full_icon = "star_full_icon"
+            if installButtonColorType == .white {
+                star_empty_icon = "star_empty_icon_white"
+                star_half_icon = "star_half_icon_white"
+                star_full_icon = "star_full_icon_white"
+            } else if installButtonColorType == .black {
+                star_empty_icon = "star_empty_icon"
+                star_half_icon = "star_half_icon"
+                star_full_icon = "star_full_icon"
+            } else if installButtonColorType == .orange {
+                star_empty_icon = "star_empty_icon_orange"
+                star_half_icon = "star_half_icon_orange"
+                star_full_icon = "star_full_icon_orange"
+            } else if installButtonColorType == .green {
+                star_empty_icon = "star_empty_icon_green"
+                star_half_icon = "star_half_icon_green"
+                star_full_icon = "star_full_icon_green"
+            }
+            
+            // stars 1
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 0.5 {
+                    DispatchQueue.main.async {
+                        
+                        self.star_icon_1?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_1?.isHidden = false
+                    }
+                } else if val < 1.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_1?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_1?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_1?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_1?.isHidden = false
+                    }
+                }
+            }
+            
+            // stars 2
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 1.5 {
+                    DispatchQueue.main.async {
+                        self.star_icon_2?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_2?.isHidden = false
+                    }
+                } else if val < 2.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_2?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_2?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_2?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_2?.isHidden = false
+                    }
+                }
+            }
+            
+            // stars 3
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 2.5 {
+                    DispatchQueue.main.async {
+                        self.star_icon_3?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_3?.isHidden = false
+                    }
+                } else if val < 3.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_3?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_3?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_3?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_3?.isHidden = false
+                    }
+                }
+            }
+            
+            // stars 4
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 3.5 {
+                    DispatchQueue.main.async {
+                        self.star_icon_4?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_4?.isHidden = false
+                    }
+                } else if val < 4.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_4?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_4?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_4?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_4?.isHidden = false
+                    }
+                }
+            }
+            
+            // stars 5
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 4.5 {
+                    DispatchQueue.main.async {
+                        self.star_icon_5?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_5?.isHidden = false
+                    }
+                } else if val < 5.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_5?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_5?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_5?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        self.star_icon_5?.isHidden = false
+                    }
+                }
+            }
+            
+            // add review count label
+            if let val = params["userRatingCountForCurrentVersion"] as? Int {
+                let str = String(val)
+                DispatchQueue.main.async {
+                    self.review_count_label?.text = "("+str+")"
+                    self.review_count_label?.isHidden = false
+                    self.review_count_label?.textColor = self.favorrTextColor
+                    
+                }
+            }
+            
+            // start downloading icon
+            if let val = params["icon"] as? String {
+                download_icon(icon_url: val)
+            }
+            
+            // send log
+            if let trackId = params["trackId"] as? Int {
+                self.trackId = trackId
+                Favorr.sharedInstance.send_log(trackId: trackId, unitId: self.unitId, banner_log_id: self.banner_log_id, action: "show")
+                
+                // prepare store
+                storeViewController = SKStoreProductViewController()
+                storeViewController?.delegate = self
+                
+                // load product here
+                let parameters = [ SKStoreProductParameterITunesItemIdentifier : trackId]
+                self.storeViewController?.loadProduct(withParameters: parameters) { (flg, error) in
+                    if flg == true {
+                        self.storeReadyFlg = true
+                    }
+                }
+            }
+            
+            // kick delegate method
+            // as successful
+            self.delegate?.FavorrAdViewDelegateDidReceiveAd(parameters: params)
         }
-        
-        // kick delegate method
-        // as successful
-        self.delegate?.FavorrAdViewDelegateDidReceiveAd(parameters: params)
+
     }
     
     // download icon
@@ -521,22 +583,6 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     Favorr.sharedInstance.send_log(trackId: self.trackId, unitId: self.unitId, banner_log_id: banner_log_id, action: "click")
                 })
             }
-            
-//            let parameters = [ SKStoreProductParameterITunesItemIdentifier : trackId]
-//            storeViewController.loadProduct(withParameters: parameters) { (flg, error) in
-//                print("storeViewController, flg:\(flg), error:\(error)")
-//                if flg == true {
-//                    print("showAppstore 2")
-//                    
-//                    self.rootViewController?.present(self.storeViewController, animated: true, completion: {
-//                        print("storeViewController shown")
-//                        
-//                        // visit log
-//                        Favorr.sharedInstance.send_log(trackId: self.trackId, unitId: self.unitId, banner_log_id: banner_log_id, action: "click")
-//                    })
-//                }
-//            }
-            
         } else {
             // print("something must be wrong 1")
         }
@@ -572,4 +618,23 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         }
     }
 
+    // change textcolor
+    public func updateTextColor(color:UIColor){
+        self.favorrTextColor = color
+        self.drawAd()
+    }
+    
+    
+    // change star color
+    public func updateStarColor(type:FavorrImageColorType) {
+        self.starColorType = type
+        self.drawAd()
+    }
+
+    // change install button color
+    public func updateInstallButtonColor(type:FavorrImageColorType) {
+        self.installButtonColorType = type
+        self.drawAd()
+    }
+    
 }
