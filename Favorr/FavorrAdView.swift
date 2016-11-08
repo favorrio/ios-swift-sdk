@@ -276,9 +276,8 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
                 {
                     
-                    print("json:\(json)")
-                    
-                    
+                   // print("json:\(json)")
+ 
                     if let result_code = json["result_code"] as? String {
                         if result_code != "success" {
                             // print("server return error")
