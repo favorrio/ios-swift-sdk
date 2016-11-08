@@ -214,7 +214,6 @@ public class Favorr: NSObject {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 // show error
-//                print(error!.localizedDescription)
                 
                 // set ad_available false
                 Favorr.sharedInstance.ad_available = false

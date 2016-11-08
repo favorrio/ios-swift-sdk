@@ -59,9 +59,17 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     var storeViewController:SKStoreProductViewController?
     var storeReadyFlg = false
     
-    var favorrTextColor:UIColor = UIColor.black
-    var installButtonColorType = FavorrImageColorType.green
-    var starColorType = FavorrImageColorType.black
+    
+    // Settings
+    var defaultFavorrBackgroundColor:UIColor = UIColor(white: 0.95, alpha: 1.0)
+    var defaultFavorrTextColor:UIColor = UIColor.black
+    var defaultInstallButtonColorType = FavorrImageColorType.green
+    var defaultStarColorType = FavorrImageColorType.black
+    
+    var favorrBackgroundColor:UIColor!
+    var favorrTextColor:UIColor!
+    var installButtonColorType:FavorrImageColorType!
+    var starColorType:FavorrImageColorType!
     
     var banner_params:[String : Any]!
     
@@ -69,7 +77,7 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         super.init(frame: frame)
         
         // setup banner
-        self.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+        self.backgroundColor = defaultFavorrBackgroundColor
         self.isHidden = true
         
         // add app icon
@@ -294,8 +302,65 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     }
                     
                     // success
-                    if let ad_info = json["ad_info"] {
+                    
+                    if let setting_info = json["setting_info"] as? [String : Any] {
                         
+                        // set settings
+                        
+                        // favorrTextColor
+                        if let favorrTextColor = setting_info["favorrTextColor"] as? String {
+                            let array = favorrTextColor.components(separatedBy: "::")
+                            let red = CGFloat(Float(array[0])!)
+                            let green = CGFloat(Float(array[1])!)
+                            let blue = CGFloat(Float(array[2])!)
+                            let alpha = CGFloat(Float(array[3])!)
+                            self.defaultFavorrTextColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                        }
+                        
+                        
+                        // favorrBackgroundColor
+                        if let favorrBackgroundColor = setting_info["favorrBackgroundColor"] as? String {
+                            let array = favorrBackgroundColor.components(separatedBy: "::")
+                            let red = CGFloat(Float(array[0])!)
+                            let green = CGFloat(Float(array[1])!)
+                            let blue = CGFloat(Float(array[2])!)
+                            let alpha = CGFloat(Float(array[3])!)
+                            self.defaultFavorrBackgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                        }
+                        
+                        // installButtonColorType
+                        if let installButtonColorType = setting_info["installButtonColorType"] as? String {
+                            if installButtonColorType == "black" {
+                                self.defaultInstallButtonColorType = FavorrImageColorType.black
+                            } else if installButtonColorType == "white" {
+                                self.defaultInstallButtonColorType = FavorrImageColorType.white
+                            } else if installButtonColorType == "green" {
+                                self.defaultInstallButtonColorType = FavorrImageColorType.green
+                            } else if installButtonColorType == "orange" {
+                                self.defaultInstallButtonColorType = FavorrImageColorType.orange
+                            } else {
+                                self.defaultInstallButtonColorType = FavorrImageColorType.green
+                            }
+                        }
+                        
+                        // starColorType
+                        if let starColorType = setting_info["starColorType"] as? String {
+                            if starColorType == "black" {
+                                self.defaultStarColorType = FavorrImageColorType.black
+                            } else if starColorType == "white" {
+                                self.defaultStarColorType = FavorrImageColorType.white
+                            } else if starColorType == "green" {
+                                self.defaultStarColorType = FavorrImageColorType.green
+                            } else if starColorType == "orange" {
+                                self.defaultStarColorType = FavorrImageColorType.orange
+                            } else {
+                                self.defaultStarColorType = FavorrImageColorType.black
+                            }
+                        }
+                    }
+                    
+                    
+                    if let ad_info = json["ad_info"] {
                         // draw banner
                         self.banner_params = ad_info as! [String : Any]
                         // self.drawAd(params: ad_info as! [String : Any])
@@ -329,6 +394,15 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     // func drawAd(params:[String: Any]){
     func drawAd(){
         
+        // backgroundColor
+        DispatchQueue.main.async {
+            if let favorrBackgroundColor = self.favorrBackgroundColor {
+                self.backgroundColor = favorrBackgroundColor
+            } else {
+                self.backgroundColor = self.defaultFavorrBackgroundColor
+            }
+        }
+        
         if let params = self.banner_params {
             
             // set banner_log_id
@@ -343,14 +417,26 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             
             // stars
             var install_icon_image = "install_icon"
-            if installButtonColorType == .white {
-                install_icon_image = "install_icon_white"
-            } else if installButtonColorType == .black {
-                install_icon_image = "install_icon_black"
-            } else if installButtonColorType == .green {
-                install_icon_image = "install_icon"
-            } else if installButtonColorType == .orange {
-                install_icon_image = "install_icon_orange"
+            if let installButtonColorType = self.installButtonColorType {
+                if installButtonColorType == .white {
+                    install_icon_image = "install_icon_white"
+                } else if installButtonColorType == .black {
+                    install_icon_image = "install_icon_black"
+                } else if installButtonColorType == .green {
+                    install_icon_image = "install_icon"
+                } else if installButtonColorType == .orange {
+                    install_icon_image = "install_icon_orange"
+                }
+            } else {
+                if self.defaultInstallButtonColorType == .white {
+                    install_icon_image = "install_icon_white"
+                } else if self.defaultInstallButtonColorType == .black {
+                    install_icon_image = "install_icon_black"
+                } else if self.defaultInstallButtonColorType == .green {
+                    install_icon_image = "install_icon"
+                } else if self.defaultInstallButtonColorType == .orange {
+                    install_icon_image = "install_icon_orange"
+                }
             }
             
             DispatchQueue.main.async {
@@ -363,7 +449,13 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 DispatchQueue.main.async {
                     self.title_label?.text = val
                     self.title_label?.isHidden = false
-                    self.title_label?.textColor = self.favorrTextColor
+                    
+                    if let favorrTextColor = self.favorrTextColor {
+                        self.title_label?.textColor = favorrTextColor
+                    } else {
+                        self.title_label?.textColor = self.defaultFavorrTextColor
+                    }
+                    
                 }
             }
             
@@ -372,7 +464,11 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 DispatchQueue.main.async {
                     self.price_label?.text = val
                     self.price_label?.isHidden = false
-                    self.price_label?.textColor = self.favorrTextColor
+                    if let favorrTextColor = self.favorrTextColor {
+                        self.price_label?.textColor = favorrTextColor
+                    } else {
+                        self.price_label?.textColor = self.defaultFavorrTextColor
+                    }
                 }
             }
             
@@ -381,23 +477,45 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             var star_empty_icon = "star_empty_icon"
             var star_half_icon = "star_half_icon"
             var star_full_icon = "star_full_icon"
-            if starColorType == .white {
-                star_empty_icon = "star_empty_icon_white"
-                star_half_icon = "star_half_icon_white"
-                star_full_icon = "star_full_icon_white"
-            } else if starColorType == .black {
-                star_empty_icon = "star_empty_icon"
-                star_half_icon = "star_half_icon"
-                star_full_icon = "star_full_icon"
-            } else if starColorType == .orange {
-                star_empty_icon = "star_empty_icon_orange"
-                star_half_icon = "star_half_icon_orange"
-                star_full_icon = "star_full_icon_orange"
-            } else if starColorType == .green {
-                star_empty_icon = "star_empty_icon_green"
-                star_half_icon = "star_half_icon_green"
-                star_full_icon = "star_full_icon_green"
+            if let starColorType = self.starColorType {
+                if starColorType == .white {
+                    star_empty_icon = "star_empty_icon_white"
+                    star_half_icon = "star_half_icon_white"
+                    star_full_icon = "star_full_icon_white"
+                } else if starColorType == .black {
+                    star_empty_icon = "star_empty_icon"
+                    star_half_icon = "star_half_icon"
+                    star_full_icon = "star_full_icon"
+                } else if starColorType == .orange {
+                    star_empty_icon = "star_empty_icon_orange"
+                    star_half_icon = "star_half_icon_orange"
+                    star_full_icon = "star_full_icon_orange"
+                } else if starColorType == .green {
+                    star_empty_icon = "star_empty_icon_green"
+                    star_half_icon = "star_half_icon_green"
+                    star_full_icon = "star_full_icon_green"
+                }
+            } else {
+                if self.defaultStarColorType == .white {
+                    star_empty_icon = "star_empty_icon_white"
+                    star_half_icon = "star_half_icon_white"
+                    star_full_icon = "star_full_icon_white"
+                } else if self.defaultStarColorType == .black {
+                    star_empty_icon = "star_empty_icon"
+                    star_half_icon = "star_half_icon"
+                    star_full_icon = "star_full_icon"
+                } else if self.defaultStarColorType == .orange {
+                    star_empty_icon = "star_empty_icon_orange"
+                    star_half_icon = "star_half_icon_orange"
+                    star_full_icon = "star_full_icon_orange"
+                } else if self.defaultStarColorType == .green {
+                    star_empty_icon = "star_empty_icon_green"
+                    star_half_icon = "star_half_icon_green"
+                    star_full_icon = "star_full_icon_green"
+                }
             }
+            
+
             
             // stars 1
             if let val = params["averageUserRatingForCurrentVersion"] as? Float {
@@ -506,8 +624,11 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 DispatchQueue.main.async {
                     self.review_count_label?.text = "("+str+")"
                     self.review_count_label?.isHidden = false
-                    self.review_count_label?.textColor = self.favorrTextColor
-                    
+                    if let favorrTextColor = self.favorrTextColor {
+                        self.review_count_label?.textColor = favorrTextColor
+                    } else {
+                        self.review_count_label?.textColor = self.defaultFavorrTextColor
+                    } 
                 }
             }
             
@@ -636,4 +757,11 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         self.drawAd()
     }
     
+    
+    
+    // change background color
+    public func updateBackgroundColor(color:UIColor) {
+        self.favorrBackgroundColor = color
+        self.drawAd()
+    }
 }
