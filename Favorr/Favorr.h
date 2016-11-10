@@ -2,7 +2,7 @@
 //  Favorr.h
 //  Favorr
 //
-//  Created by 大橋 功 on 10/17/16.
+//  Created by Ko Ohashi on 10/17/16.
 //  Copyright © 2016 Favorr, inc. All rights reserved.
 //
 

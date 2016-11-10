@@ -2,8 +2,8 @@
 //  Favorr.swift
 //  example_app1
 //
-//  Created by 大橋 功 on 10/6/16.
-//  Copyright © 2016 Livebuzz, Inc. All rights reserved.
+//  Created by Ko Ohashi on 10/6/16.
+//  Copyright © 2016 Favorr, inc. All rights reserved.
 //
 
 import Foundation
