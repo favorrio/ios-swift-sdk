@@ -83,7 +83,7 @@ Pod::Spec.new do |s|
   #
 
   # s.source       = { :path => '.' }
-  s.source       = { :git => "https://github.com/favorrio/ios-swift-sdk.git", :tag => "0.0.5" }
+  s.source       = { :git => "https://github.com/favorrio/ios-swift-sdk.git", :tag => "0.0.6" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
