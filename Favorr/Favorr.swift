@@ -39,6 +39,8 @@ public class Favorr: NSObject {
         case apiKeyNotFound
         case jsonError
         case networkError
+        case serverError
+        case unkownError
     }
     
     // Favorr as a session tracker
@@ -441,6 +443,65 @@ public class Favorr: NSObject {
         }
         task.resume()
     }
+    
+    
+    // check availability
+    public func checkAdAvailable(unitId:String, completion:@escaping ((String?, Error?) -> Void)){
+        
+        // get data from favorr rest api
+        
+        // prepare parameters
+        var params = [String : String]()
+        
+        if let apiKey = Favorr.sharedInstance.apiKey {
+            params["apiKey"] = apiKey
+        }
+        
+        // unitId and banner_log_id
+        params["unitId"] = unitId
+ 
+        var request = URLRequest(url: URL(string: "https://cp1.favorr.io/check_ad_available_with_unitid")!)
+        request.httpMethod = "POST"
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+        } catch {
+            // print("Dim background error")
+            
+            completion(nil, apiKeyError.jsonError)
+            return;
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                // show error
+                //                print(error!.localizedDescription)
+                completion(nil, apiKeyError.networkError)
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
+                {
+                    // success
+                    // print("json:\(json)")
+                    
+                    let ad_availability = json["ad_availability"] as? String
+                    completion(ad_availability, nil)
+                }
+            } catch {
+                // print("error in JSONSerialization 5")
+                
+                completion(nil, apiKeyError.serverError)
+                return;
+            }
+        }
+        task.resume()
+
+    }
+    
 }
 
 

@@ -59,7 +59,6 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     var storeViewController:SKStoreProductViewController?
     var storeReadyFlg = false
     
-    
     // Settings
     var defaultFavorrBackgroundColor:UIColor = UIColor(white: 0.95, alpha: 1.0)
     var defaultFavorrTextColor:UIColor = UIColor.black
@@ -73,84 +72,103 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     
     var banner_params:[String : Any]!
     
+    var contentView:UIView!
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // setup banner
-        self.backgroundColor = defaultFavorrBackgroundColor
-        self.isHidden = true
+        // base content view
+        self.contentView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.width))
+        self.contentView.backgroundColor = defaultFavorrBackgroundColor
+        self.contentView.isHidden = true
+        self.addSubview(self.contentView)
+        
+//        // setup banner
+//        self.backgroundColor = defaultFavorrBackgroundColor
+//        self.isHidden = true
         
         // add app icon
         app_icon = UIImageView(frame: CGRect(x: 10, y: 10, width:38, height: 38))
-        self.addSubview(app_icon!)
         app_icon?.layer.cornerRadius = 8.0
         app_icon?.clipsToBounds = true
-        app_icon?.isHidden = true
+        // self.addSubview(app_icon!)
+        self.contentView.addSubview(app_icon!)
+        // app_icon?.isHidden = true
         
         // add install button
         let install_icon_x = frame.size.width - 10 - 76
         install_icon = UIImageView(frame: CGRect(x: install_icon_x, y: 12, width: 76, height: 34))
-        install_icon?.isHidden = true
-        self.addSubview(install_icon!)
+        // install_icon?.isHidden = true
+        // self.addSubview(install_icon!)
+        self.contentView.addSubview(install_icon!)
         
         // add title label
         let title_label_w =  self.frame.size.width - 154; // - 10 - 38 - 10 - 10 - 76 - 10
         let title_label_x = 10 + (app_icon?.frame.size.width)! + 10
         title_label = UILabel(frame: CGRect(x: title_label_x, y: 12, width: title_label_w, height: 16))
         title_label?.font = UIFont(name: "AvenirNext-DemiBold", size: 12)
-        title_label?.isHidden = true
-        self.addSubview(title_label!)
+        // title_label?.isHidden = true
+        // self.addSubview(title_label!)
+        self.contentView.addSubview(title_label!)
         
         // add price label
         let price_label_y = (title_label?.frame.origin.y)! + (title_label?.frame.size.height)! + 2
         let price_label_x = title_label?.frame.origin.x
         price_label = UILabel(frame: CGRect(x: price_label_x!, y: price_label_y, width: 32, height: 16))
         price_label?.font = UIFont(name: "AvenirNext-Regular", size: 12)
-        price_label?.isHidden = true
-        self.addSubview(price_label!)
+        // price_label?.isHidden = true
+        // self.addSubview(price_label!)
+        self.contentView.addSubview(price_label!)
+        
         
         // stars 1
         let star_icon_1_x = (price_label?.frame.origin.x)! + (price_label?.frame.size.width)!
         let star_icon_1_y = (price_label?.frame.origin.y)! + 2
         star_icon_1 = UIImageView(frame: CGRect(x: star_icon_1_x , y: star_icon_1_y, width: 11, height: 10.47))
-        star_icon_1?.isHidden = true
-        self.addSubview(star_icon_1!)
+        // star_icon_1?.isHidden = true
+        // self.addSubview(star_icon_1!)
+        self.contentView.addSubview(star_icon_1!)
         
         // stars 2
         let star_icon_2_x = (star_icon_1?.frame.origin.x)! + (star_icon_1?.frame.size.width)!
         let star_icon_2_y = star_icon_1?.frame.origin.y
         star_icon_2 = UIImageView(frame: CGRect(x: star_icon_2_x , y: star_icon_2_y!, width: 11, height: 10.47))
-        star_icon_2?.isHidden = true
-        self.addSubview(star_icon_2!)
+        // star_icon_2?.isHidden = true
+        // self.addSubview(star_icon_2!)
+        self.contentView.addSubview(star_icon_2!)
         
         // stars 3
         let star_icon_3_x = (star_icon_2?.frame.origin.x)! + (star_icon_2?.frame.size.width)!
         let star_icon_3_y = star_icon_2?.frame.origin.y
         star_icon_3 = UIImageView(frame: CGRect(x: star_icon_3_x , y: star_icon_3_y!, width: 11, height: 10.47))
-        star_icon_3?.isHidden = true
-        self.addSubview(star_icon_3!)
+        // star_icon_3?.isHidden = true
+        // self.addSubview(star_icon_3!)
+        self.contentView.addSubview(star_icon_3!)
         
         // stars 4
         let star_icon_4_x = (star_icon_3?.frame.origin.x)! + (star_icon_3?.frame.size.width)!
         let star_icon_4_y = star_icon_3?.frame.origin.y
         star_icon_4 = UIImageView(frame: CGRect(x: star_icon_4_x , y: star_icon_4_y!, width: 11, height: 10.47))
-        star_icon_4?.isHidden = true
-        self.addSubview(star_icon_4!)
+        // star_icon_4?.isHidden = true
+        // self.addSubview(star_icon_4!)
+        self.contentView.addSubview(star_icon_4!)
         
         // stars 5
         let star_icon_5_x = (star_icon_4?.frame.origin.x)! + (star_icon_4?.frame.size.width)!
         let star_icon_5_y = star_icon_4?.frame.origin.y
         star_icon_5 = UIImageView(frame: CGRect(x: star_icon_5_x , y: star_icon_5_y!, width: 11, height: 10.47))
-        star_icon_5?.isHidden = true
-        self.addSubview(star_icon_5!)
+        // star_icon_5?.isHidden = true
+        // self.addSubview(star_icon_5!)
+        self.contentView.addSubview(star_icon_5!)
         
         // add review count label
         let review_count_label_x = (star_icon_5?.frame.origin.x)! + (star_icon_5?.frame.size.width)!
         let review_count_label_y = price_label?.frame.origin.y
         review_count_label = UILabel(frame: CGRect(x: review_count_label_x, y: review_count_label_y!, width: 32, height: 16))
         review_count_label?.font = UIFont(name: "AvenirNext-Regular", size: 11)
-        review_count_label?.isHidden = true
-        self.addSubview(review_count_label!)
+        // review_count_label?.isHidden = true
+        // self.addSubview(review_count_label!)
+        self.contentView.addSubview(review_count_label!)
         
         // activity indicator
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -162,7 +180,8 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         
         activityIndicator?.frame = activityRect
         activityIndicator?.isHidden = true
-        self.addSubview(activityIndicator!)
+        // self.addSubview(activityIndicator!)
+        self.contentView.addSubview(activityIndicator!)
 
         // make it touchable
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapBanner(_:)))
@@ -182,23 +201,26 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             return
         }
         
-        // hide components
-        app_icon?.isHidden = true
-        install_icon?.isHidden = true
-        title_label?.isHidden = true
-        price_label?.isHidden = true
-        star_icon_1?.isHidden = true
-        star_icon_2?.isHidden = true
-        star_icon_3?.isHidden = true
-        star_icon_4?.isHidden = true
-        star_icon_5?.isHidden = true
-        review_count_label?.isHidden = true
+        
+        self.contentView.isHidden = true
+        
+//        // hide components
+//        app_icon?.isHidden = true
+//        install_icon?.isHidden = true
+//        title_label?.isHidden = true
+//        price_label?.isHidden = true
+//        star_icon_1?.isHidden = true
+//        star_icon_2?.isHidden = true
+//        star_icon_3?.isHidden = true
+//        star_icon_4?.isHidden = true
+//        star_icon_5?.isHidden = true
+//        review_count_label?.isHidden = true
         
         // init store ready flg
         self.storeReadyFlg = false
         
         // show indicator
-        self.isHidden = false
+        // self.isHidden = false
         DispatchQueue.main.async {
             self.activityIndicator?.startAnimating()
             self.activityIndicator?.isHidden = false
@@ -397,9 +419,9 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         // backgroundColor
         DispatchQueue.main.async {
             if let favorrBackgroundColor = self.favorrBackgroundColor {
-                self.backgroundColor = favorrBackgroundColor
+                self.contentView.backgroundColor = favorrBackgroundColor
             } else {
-                self.backgroundColor = self.defaultFavorrBackgroundColor
+                self.contentView.backgroundColor = self.defaultFavorrBackgroundColor
             }
         }
         
@@ -441,14 +463,14 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             
             DispatchQueue.main.async {
                 self.install_icon?.image = UIImage(named: install_icon_image, in: frameWorkBundle, compatibleWith: nil)
-                self.install_icon?.isHidden = false
+                // self.install_icon?.isHidden = false
             }
             
             // add title label
             if let val = params["title"] as? String {
                 DispatchQueue.main.async {
                     self.title_label?.text = val
-                    self.title_label?.isHidden = false
+                    // self.title_label?.isHidden = false
                     
                     if let favorrTextColor = self.favorrTextColor {
                         self.title_label?.textColor = favorrTextColor
@@ -463,7 +485,7 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
             if let val = params["price"] as? String {
                 DispatchQueue.main.async {
                     self.price_label?.text = val
-                    self.price_label?.isHidden = false
+                    // self.price_label?.isHidden = false
                     if let favorrTextColor = self.favorrTextColor {
                         self.price_label?.textColor = favorrTextColor
                     } else {
@@ -523,17 +545,17 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     DispatchQueue.main.async {
                         
                         self.star_icon_1?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_1?.isHidden = false
+                        // self.star_icon_1?.isHidden = false
                     }
                 } else if val < 1.0 {
                     DispatchQueue.main.async {
                         self.star_icon_1?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_1?.isHidden = false
+                        // self.star_icon_1?.isHidden = false
                     }
                 } else {
                     DispatchQueue.main.async {
                         self.star_icon_1?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_1?.isHidden = false
+                        // self.star_icon_1?.isHidden = false
                     }
                 }
             }
@@ -543,17 +565,17 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 if val < 1.5 {
                     DispatchQueue.main.async {
                         self.star_icon_2?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_2?.isHidden = false
+                        // self.star_icon_2?.isHidden = false
                     }
                 } else if val < 2.0 {
                     DispatchQueue.main.async {
                         self.star_icon_2?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_2?.isHidden = false
+                        // self.star_icon_2?.isHidden = false
                     }
                 } else {
                     DispatchQueue.main.async {
                         self.star_icon_2?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_2?.isHidden = false
+                        // self.star_icon_2?.isHidden = false
                     }
                 }
             }
@@ -563,17 +585,17 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 if val < 2.5 {
                     DispatchQueue.main.async {
                         self.star_icon_3?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_3?.isHidden = false
+                        // self.star_icon_3?.isHidden = false
                     }
                 } else if val < 3.0 {
                     DispatchQueue.main.async {
                         self.star_icon_3?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_3?.isHidden = false
+                        // self.star_icon_3?.isHidden = false
                     }
                 } else {
                     DispatchQueue.main.async {
                         self.star_icon_3?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_3?.isHidden = false
+                        // self.star_icon_3?.isHidden = false
                     }
                 }
             }
@@ -583,17 +605,17 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 if val < 3.5 {
                     DispatchQueue.main.async {
                         self.star_icon_4?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_4?.isHidden = false
+                        // self.star_icon_4?.isHidden = false
                     }
                 } else if val < 4.0 {
                     DispatchQueue.main.async {
                         self.star_icon_4?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_4?.isHidden = false
+                        // self.star_icon_4?.isHidden = false
                     }
                 } else {
                     DispatchQueue.main.async {
                         self.star_icon_4?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_4?.isHidden = false
+                        // self.star_icon_4?.isHidden = false
                     }
                 }
             }
@@ -603,17 +625,17 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 if val < 4.5 {
                     DispatchQueue.main.async {
                         self.star_icon_5?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_5?.isHidden = false
+                        // self.star_icon_5?.isHidden = false
                     }
                 } else if val < 5.0 {
                     DispatchQueue.main.async {
                         self.star_icon_5?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_5?.isHidden = false
+                        // self.star_icon_5?.isHidden = false
                     }
                 } else {
                     DispatchQueue.main.async {
                         self.star_icon_5?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
-                        self.star_icon_5?.isHidden = false
+                        // self.star_icon_5?.isHidden = false
                     }
                 }
             }
@@ -675,7 +697,18 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                     DispatchQueue.main.async {
                         // update some UI
                         self.app_icon?.image = bach
-                        self.app_icon?.isHidden = false
+                        // self.app_icon?.isHidden = false
+                        
+                        
+                        // print("download_icon ok")
+                        
+                        // seems prepared
+                        self.isHidden = false
+                        self.contentView.alpha = 0
+                        self.contentView.isHidden = false
+                        UIView.animate(withDuration: 0.5, animations: {
+                            self.contentView.alpha = 1
+                        })
                     }
                 }
             }
