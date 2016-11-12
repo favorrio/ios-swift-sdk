@@ -133,6 +133,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Favorr * _No
 + (Favorr * _Nonnull)sharedInstance;
 - (void)initWithApiKeyWithApiKey:(NSString * _Nonnull)apiKey completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion SWIFT_METHOD_FAMILY(none);
 - (FavorrAdView * _Nonnull)initAdViewWithUnitId:(NSString * _Nonnull)unitId frame:(CGRect)frame SWIFT_METHOD_FAMILY(none);
+- (void)checkAdAvailableWithUnitId:(NSString * _Nonnull)unitId completion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

@@ -15,79 +15,80 @@ provides-member:
 - ["OC6Favorr12FavorrAdView14requestAdError", ""]
 - ["OC6Favorr12FavorrAdView20FavorrImageColorType", ""]
 provides-dynamic-lookup:
-- "updateBackgroundColor"
-- "drawAd"
-- "install_icon"
-- "star_icon_5"
-- "star_icon_1"
 - "storeReadyFlg"
+- "install_icon"
+- "star_icon_1"
 - "defaultFavorrTextColor"
-- "download_icon"
 - "favorrBackgroundColor"
-- "defaultFavorrBackgroundColor"
-- "review_count_label"
-- "star_icon_3"
-- "price_label"
-- "app_icon"
-- "banner_params"
-- "favorrTextColor"
-- "banner_log_id"
+- "updateBackgroundColor"
+- "tapBanner"
 - "updateTextColor"
+- "title_label"
+- "rootViewController"
+- "contentView"
+- "drawAd"
+- "star_icon_2"
+- "star_icon_5"
+- "banner_log_id"
+- "review_count_label"
+- "unitId"
+- "star_icon_3"
+- "favorrTextColor"
+- "trackId"
+- "download_icon"
+- "app_icon"
+- "price_label"
+- "storeViewController"
+- "banner_params"
 - "activityIndicator"
 - "star_icon_4"
-- "trackId"
-- "storeViewController"
-- "unitId"
-- "rootViewController"
 - "requestAd"
-- "tapBanner"
+- "defaultFavorrBackgroundColor"
 - "productViewControllerDidFinish"
-- "title_label"
-- "star_icon_2"
 depends-top-level:
-- !private "CGFloat"
-- "UITapGestureRecognizer"
-- !private "Int"
-- "CGRect"
+- !private "fatalError"
+- "UIViewController"
+- !private "-"
+- !private "Array"
+- "NSCoder"
+- "UIImageView"
+- "UIView"
+- "UILabel"
 - !private "+"
+- "=="
+- "CastingPrecedence"
+- "AssignmentPrecedence"
+- "UIActivityIndicatorView"
+- !private "Dictionary"
+- !private "URLSession"
+- "SKStoreProductViewController"
+- "UITapGestureRecognizer"
+- "UIColor"
+- !private "Bundle"
+- !private "UIFont"
+- !private "<"
+- !private "DispatchQueue"
+- !private "Void"
+- "BooleanLiteralType"
+- "CGRect"
+- "FavorrAdViewDelegate"
+- !private "Favorr"
+- !private "URL"
+- !private "JSONSerialization"
+- !private "URLRequest"
+- "Error"
+- "String"
+- !private "!="
+- !private "CGFloat"
 - !private "Float"
+- !private "UIImage"
+- !private "Int"
+- !private "/"
+- "UnicodeScalarType"
 - "SKStoreProductViewControllerDelegate"
 - "FavorrAdView"
-- "Error"
-- "UIActivityIndicatorView"
-- !private "-"
-- "=="
-- "AssignmentPrecedence"
-- "String"
-- "UIImageView"
-- !private "JSONSerialization"
-- !private "UIFont"
-- !private "fatalError"
-- !private "Array"
-- "UIViewController"
-- !private "/"
-- !private "URL"
-- !private "<"
-- !private "Dictionary"
-- !private "URLRequest"
-- !private "URLSession"
-- !private "Void"
-- !private "!="
-- "UIColor"
 - !private "StringLiteralType"
-- "CastingPrecedence"
-- !private "UIImage"
 - !private "SKStoreProductParameterITunesItemIdentifier"
-- !private "Bundle"
-- "FavorrAdViewDelegate"
-- "UIView"
-- "BooleanLiteralType"
-- "SKStoreProductViewController"
-- "NSCoder"
-- !private "Favorr"
-- "UnicodeScalarType"
-- !private "DispatchQueue"
-- "UILabel"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps16AbsoluteValuable", "init"]
@@ -109,6 +110,7 @@ depends-member:
 - !private ["Ps9AnyObject", "UIImageView"]
 - !private ["Ps9AnyObject", "UILabel"]
 - !private ["Ps9AnyObject", "UITapGestureRecognizer"]
+- !private ["Ps9AnyObject", "UIView"]
 - !private ["Ps9AnyObject", "URL"]
 - !private ["Ps9AnyObject", "URLRequest"]
 - !private ["Ps9AnyObject", "URLSession"]
@@ -116,6 +118,8 @@ depends-member:
 - !private ["Ps9AnyObject", "addGestureRecognizer"]
 - !private ["Ps9AnyObject", "addSubview"]
 - !private ["Ps9AnyObject", "adid_string"]
+- !private ["Ps9AnyObject", "alpha"]
+- !private ["Ps9AnyObject", "animate"]
 - !private ["Ps9AnyObject", "apiKey"]
 - ["Ps9AnyObject", "app_icon"]
 - !private ["Ps9AnyObject", "async"]
@@ -125,6 +129,7 @@ depends-member:
 - ["Ps9AnyObject", "black"]
 - !private ["Ps9AnyObject", "clipsToBounds"]
 - !private ["Ps9AnyObject", "components"]
+- ["Ps9AnyObject", "contentView"]
 - !private ["Ps9AnyObject", "cornerRadius"]
 - !private ["Ps9AnyObject", "data"]
 - !private ["Ps9AnyObject", "dataTask"]
@@ -244,17 +249,21 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "UIImageView"]
 - !private ["PSo15CALayerDelegate", "UILabel"]
 - !private ["PSo15CALayerDelegate", "UITapGestureRecognizer"]
+- !private ["PSo15CALayerDelegate", "UIView"]
 - !private ["PSo15CALayerDelegate", "URL"]
 - !private ["PSo15CALayerDelegate", "URLRequest"]
 - !private ["PSo15CALayerDelegate", "URLSession"]
 - ["PSo15CALayerDelegate", "activityIndicator"]
 - !private ["PSo15CALayerDelegate", "addGestureRecognizer"]
 - !private ["PSo15CALayerDelegate", "addSubview"]
+- !private ["PSo15CALayerDelegate", "alpha"]
+- !private ["PSo15CALayerDelegate", "animate"]
 - ["PSo15CALayerDelegate", "app_icon"]
 - !private ["PSo15CALayerDelegate", "backgroundColor"]
 - ["PSo15CALayerDelegate", "banner_log_id"]
 - ["PSo15CALayerDelegate", "banner_params"]
 - !private ["PSo15CALayerDelegate", "clipsToBounds"]
+- ["PSo15CALayerDelegate", "contentView"]
 - ["PSo15CALayerDelegate", "defaultFavorrBackgroundColor"]
 - ["PSo15CALayerDelegate", "defaultFavorrTextColor"]
 - ["PSo15CALayerDelegate", "defaultInstallButtonColorType"]
@@ -336,6 +345,7 @@ depends-member:
 - !private ["Ps7CVarArg", "UIImageView"]
 - !private ["Ps7CVarArg", "UILabel"]
 - !private ["Ps7CVarArg", "UITapGestureRecognizer"]
+- !private ["Ps7CVarArg", "UIView"]
 - !private ["Ps7CVarArg", "URL"]
 - !private ["Ps7CVarArg", "URLRequest"]
 - !private ["Ps7CVarArg", "URLSession"]
@@ -346,6 +356,8 @@ depends-member:
 - !private ["Ps7CVarArg", "addGestureRecognizer"]
 - !private ["Ps7CVarArg", "addSubview"]
 - !private ["Ps7CVarArg", "adid_string"]
+- !private ["Ps7CVarArg", "alpha"]
+- !private ["Ps7CVarArg", "animate"]
 - !private ["Ps7CVarArg", "apiKey"]
 - ["Ps7CVarArg", "app_icon"]
 - !private ["Ps7CVarArg", "async"]
@@ -355,6 +367,7 @@ depends-member:
 - ["Ps7CVarArg", "black"]
 - !private ["Ps7CVarArg", "clipsToBounds"]
 - !private ["Ps7CVarArg", "components"]
+- ["Ps7CVarArg", "contentView"]
 - !private ["Ps7CVarArg", "cornerRadius"]
 - !private ["Ps7CVarArg", "data"]
 - !private ["Ps7CVarArg", "dataTask"]
@@ -461,6 +474,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UIImageView"]
 - !private ["Ps28CustomDebugStringConvertible", "UILabel"]
 - !private ["Ps28CustomDebugStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps28CustomDebugStringConvertible", "UIView"]
 - !private ["Ps28CustomDebugStringConvertible", "URL"]
 - !private ["Ps28CustomDebugStringConvertible", "URLRequest"]
 - !private ["Ps28CustomDebugStringConvertible", "URLSession"]
@@ -470,6 +484,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "addSubview"]
 - !private ["Ps28CustomDebugStringConvertible", "addValue"]
 - !private ["Ps28CustomDebugStringConvertible", "adid_string"]
+- !private ["Ps28CustomDebugStringConvertible", "alpha"]
+- !private ["Ps28CustomDebugStringConvertible", "animate"]
 - !private ["Ps28CustomDebugStringConvertible", "apiKey"]
 - ["Ps28CustomDebugStringConvertible", "app_icon"]
 - !private ["Ps28CustomDebugStringConvertible", "async"]
@@ -479,6 +495,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "black"]
 - !private ["Ps28CustomDebugStringConvertible", "clipsToBounds"]
 - !private ["Ps28CustomDebugStringConvertible", "components"]
+- ["Ps28CustomDebugStringConvertible", "contentView"]
 - !private ["Ps28CustomDebugStringConvertible", "cornerRadius"]
 - !private ["Ps28CustomDebugStringConvertible", "data"]
 - !private ["Ps28CustomDebugStringConvertible", "dataTask"]
@@ -618,6 +635,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UIImageView"]
 - !private ["Ps23CustomStringConvertible", "UILabel"]
 - !private ["Ps23CustomStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps23CustomStringConvertible", "UIView"]
 - !private ["Ps23CustomStringConvertible", "URL"]
 - !private ["Ps23CustomStringConvertible", "URLRequest"]
 - !private ["Ps23CustomStringConvertible", "URLSession"]
@@ -630,6 +648,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "addSubview"]
 - !private ["Ps23CustomStringConvertible", "addValue"]
 - !private ["Ps23CustomStringConvertible", "adid_string"]
+- !private ["Ps23CustomStringConvertible", "alpha"]
+- !private ["Ps23CustomStringConvertible", "animate"]
 - !private ["Ps23CustomStringConvertible", "apiKey"]
 - ["Ps23CustomStringConvertible", "app_icon"]
 - !private ["Ps23CustomStringConvertible", "async"]
@@ -639,6 +659,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "black"]
 - !private ["Ps23CustomStringConvertible", "clipsToBounds"]
 - !private ["Ps23CustomStringConvertible", "components"]
+- ["Ps23CustomStringConvertible", "contentView"]
 - !private ["Ps23CustomStringConvertible", "cornerRadius"]
 - !private ["Ps23CustomStringConvertible", "data"]
 - !private ["Ps23CustomStringConvertible", "dataTask"]
@@ -759,6 +780,7 @@ depends-member:
 - !private ["Ps9Equatable", "UIImageView"]
 - !private ["Ps9Equatable", "UILabel"]
 - !private ["Ps9Equatable", "UITapGestureRecognizer"]
+- !private ["Ps9Equatable", "UIView"]
 - !private ["Ps9Equatable", "URL"]
 - !private ["Ps9Equatable", "URLRequest"]
 - !private ["Ps9Equatable", "URLSession"]
@@ -776,6 +798,8 @@ depends-member:
 - !private ["Ps9Equatable", "addValue"]
 - !private ["Ps9Equatable", "adid_string"]
 - !private ["Ps9Equatable", "allowFragments"]
+- !private ["Ps9Equatable", "alpha"]
+- !private ["Ps9Equatable", "animate"]
 - !private ["Ps9Equatable", "apiKey"]
 - !private ["Ps9Equatable", "apiKeyError"]
 - ["Ps9Equatable", "app_icon"]
@@ -786,6 +810,7 @@ depends-member:
 - ["Ps9Equatable", "black"]
 - !private ["Ps9Equatable", "clipsToBounds"]
 - !private ["Ps9Equatable", "components"]
+- ["Ps9Equatable", "contentView"]
 - !private ["Ps9Equatable", "cornerRadius"]
 - !private ["Ps9Equatable", "data"]
 - !private ["Ps9Equatable", "dataTask"]
@@ -946,6 +971,7 @@ depends-member:
 - ["C6Favorr12FavorrAdView", "UIImageView"]
 - ["C6Favorr12FavorrAdView", "UILabel"]
 - ["C6Favorr12FavorrAdView", "UITapGestureRecognizer"]
+- ["C6Favorr12FavorrAdView", "UIView"]
 - ["C6Favorr12FavorrAdView", "UIViewController"]
 - !private ["C6Favorr12FavorrAdView", "URL"]
 - !private ["C6Favorr12FavorrAdView", "URLRequest"]
@@ -955,9 +981,9 @@ depends-member:
 - !private ["C6Favorr12FavorrAdView", "addGestureRecognizer"]
 - !private ["C6Favorr12FavorrAdView", "addSubview"]
 - ["C6Favorr12FavorrAdView", "app_icon"]
-- !private ["C6Favorr12FavorrAdView", "backgroundColor"]
 - ["C6Favorr12FavorrAdView", "banner_log_id"]
 - ["C6Favorr12FavorrAdView", "banner_params"]
+- ["C6Favorr12FavorrAdView", "contentView"]
 - ["C6Favorr12FavorrAdView", "defaultFavorrBackgroundColor"]
 - ["C6Favorr12FavorrAdView", "defaultFavorrTextColor"]
 - ["C6Favorr12FavorrAdView", "defaultInstallButtonColorType"]
@@ -1034,6 +1060,7 @@ depends-member:
 - !private ["Ps8Hashable", "UIImageView"]
 - !private ["Ps8Hashable", "UILabel"]
 - !private ["Ps8Hashable", "UITapGestureRecognizer"]
+- !private ["Ps8Hashable", "UIView"]
 - !private ["Ps8Hashable", "URL"]
 - !private ["Ps8Hashable", "URLRequest"]
 - !private ["Ps8Hashable", "URLSession"]
@@ -1050,6 +1077,8 @@ depends-member:
 - !private ["Ps8Hashable", "addSubview"]
 - !private ["Ps8Hashable", "addValue"]
 - !private ["Ps8Hashable", "adid_string"]
+- !private ["Ps8Hashable", "alpha"]
+- !private ["Ps8Hashable", "animate"]
 - !private ["Ps8Hashable", "apiKey"]
 - !private ["Ps8Hashable", "apiKeyError"]
 - ["Ps8Hashable", "app_icon"]
@@ -1060,6 +1089,7 @@ depends-member:
 - ["Ps8Hashable", "black"]
 - !private ["Ps8Hashable", "clipsToBounds"]
 - !private ["Ps8Hashable", "components"]
+- ["Ps8Hashable", "contentView"]
 - !private ["Ps8Hashable", "cornerRadius"]
 - !private ["Ps8Hashable", "data"]
 - !private ["Ps8Hashable", "dataTask"]
@@ -1218,12 +1248,15 @@ depends-member:
 - !private ["PSo8NSCoding", "UIImageView"]
 - !private ["PSo8NSCoding", "UILabel"]
 - !private ["PSo8NSCoding", "UITapGestureRecognizer"]
+- !private ["PSo8NSCoding", "UIView"]
 - !private ["PSo8NSCoding", "URL"]
 - !private ["PSo8NSCoding", "URLRequest"]
 - !private ["PSo8NSCoding", "URLSession"]
 - ["PSo8NSCoding", "activityIndicator"]
 - !private ["PSo8NSCoding", "addGestureRecognizer"]
 - !private ["PSo8NSCoding", "addSubview"]
+- !private ["PSo8NSCoding", "alpha"]
+- !private ["PSo8NSCoding", "animate"]
 - ["PSo8NSCoding", "app_icon"]
 - !private ["PSo8NSCoding", "backgroundColor"]
 - ["PSo8NSCoding", "banner_log_id"]
@@ -1231,6 +1264,7 @@ depends-member:
 - ["PSo8NSCoding", "black"]
 - !private ["PSo8NSCoding", "clipsToBounds"]
 - !private ["PSo8NSCoding", "components"]
+- ["PSo8NSCoding", "contentView"]
 - !private ["PSo8NSCoding", "cornerRadius"]
 - ["PSo8NSCoding", "defaultFavorrBackgroundColor"]
 - ["PSo8NSCoding", "defaultFavorrTextColor"]
@@ -1313,6 +1347,7 @@ depends-member:
 - ["CSo8NSObject", "UIImageView"]
 - ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UITapGestureRecognizer"]
+- ["CSo8NSObject", "UIView"]
 - ["CSo8NSObject", "UIViewController"]
 - !private ["CSo8NSObject", "URL"]
 - !private ["CSo8NSObject", "URLRequest"]
@@ -1322,6 +1357,8 @@ depends-member:
 - !private ["CSo8NSObject", "addGestureRecognizer"]
 - !private ["CSo8NSObject", "addSubview"]
 - !private ["CSo8NSObject", "adid_string"]
+- !private ["CSo8NSObject", "alpha"]
+- !private ["CSo8NSObject", "animate"]
 - !private ["CSo8NSObject", "apiKey"]
 - ["CSo8NSObject", "app_icon"]
 - !private ["CSo8NSObject", "async"]
@@ -1331,6 +1368,7 @@ depends-member:
 - ["CSo8NSObject", "black"]
 - !private ["CSo8NSObject", "clipsToBounds"]
 - !private ["CSo8NSObject", "components"]
+- ["CSo8NSObject", "contentView"]
 - !private ["CSo8NSObject", "cornerRadius"]
 - !private ["CSo8NSObject", "data"]
 - !private ["CSo8NSObject", "dataTask"]
@@ -1412,6 +1450,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UIImageView"]
 - !private ["PSo16NSObjectProtocol", "UILabel"]
 - !private ["PSo16NSObjectProtocol", "UITapGestureRecognizer"]
+- !private ["PSo16NSObjectProtocol", "UIView"]
 - !private ["PSo16NSObjectProtocol", "URL"]
 - !private ["PSo16NSObjectProtocol", "URLRequest"]
 - !private ["PSo16NSObjectProtocol", "URLSession"]
@@ -1419,6 +1458,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "addGestureRecognizer"]
 - !private ["PSo16NSObjectProtocol", "addSubview"]
 - !private ["PSo16NSObjectProtocol", "adid_string"]
+- !private ["PSo16NSObjectProtocol", "alpha"]
+- !private ["PSo16NSObjectProtocol", "animate"]
 - !private ["PSo16NSObjectProtocol", "apiKey"]
 - ["PSo16NSObjectProtocol", "app_icon"]
 - !private ["PSo16NSObjectProtocol", "async"]
@@ -1428,6 +1469,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "black"]
 - !private ["PSo16NSObjectProtocol", "clipsToBounds"]
 - !private ["PSo16NSObjectProtocol", "components"]
+- ["PSo16NSObjectProtocol", "contentView"]
 - !private ["PSo16NSObjectProtocol", "cornerRadius"]
 - !private ["PSo16NSObjectProtocol", "data"]
 - !private ["PSo16NSObjectProtocol", "dataTask"]
@@ -1565,6 +1607,7 @@ depends-member:
 - !private ["PSo36SKStoreProductViewControllerDelegate", "UIImageView"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "UILabel"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "UITapGestureRecognizer"]
+- !private ["PSo36SKStoreProductViewControllerDelegate", "UIView"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "URL"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "URLRequest"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "URLSession"]
@@ -1572,9 +1615,9 @@ depends-member:
 - !private ["PSo36SKStoreProductViewControllerDelegate", "addGestureRecognizer"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "addSubview"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "app_icon"]
-- !private ["PSo36SKStoreProductViewControllerDelegate", "backgroundColor"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "banner_log_id"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "banner_params"]
+- !private ["PSo36SKStoreProductViewControllerDelegate", "contentView"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "defaultFavorrBackgroundColor"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "defaultFavorrTextColor"]
 - !private ["PSo36SKStoreProductViewControllerDelegate", "defaultInstallButtonColorType"]
@@ -1668,17 +1711,21 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "UIImageView"]
 - !private ["PSo29UIAccessibilityIdentification", "UILabel"]
 - !private ["PSo29UIAccessibilityIdentification", "UITapGestureRecognizer"]
+- !private ["PSo29UIAccessibilityIdentification", "UIView"]
 - !private ["PSo29UIAccessibilityIdentification", "URL"]
 - !private ["PSo29UIAccessibilityIdentification", "URLRequest"]
 - !private ["PSo29UIAccessibilityIdentification", "URLSession"]
 - ["PSo29UIAccessibilityIdentification", "activityIndicator"]
 - !private ["PSo29UIAccessibilityIdentification", "addGestureRecognizer"]
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
+- !private ["PSo29UIAccessibilityIdentification", "alpha"]
+- !private ["PSo29UIAccessibilityIdentification", "animate"]
 - ["PSo29UIAccessibilityIdentification", "app_icon"]
 - !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
 - ["PSo29UIAccessibilityIdentification", "banner_log_id"]
 - ["PSo29UIAccessibilityIdentification", "banner_params"]
 - !private ["PSo29UIAccessibilityIdentification", "clipsToBounds"]
+- ["PSo29UIAccessibilityIdentification", "contentView"]
 - ["PSo29UIAccessibilityIdentification", "defaultFavorrBackgroundColor"]
 - ["PSo29UIAccessibilityIdentification", "defaultFavorrTextColor"]
 - ["PSo29UIAccessibilityIdentification", "defaultInstallButtonColorType"]
@@ -1750,17 +1797,21 @@ depends-member:
 - !private ["PSo12UIAppearance", "UIImageView"]
 - !private ["PSo12UIAppearance", "UILabel"]
 - !private ["PSo12UIAppearance", "UITapGestureRecognizer"]
+- !private ["PSo12UIAppearance", "UIView"]
 - !private ["PSo12UIAppearance", "URL"]
 - !private ["PSo12UIAppearance", "URLRequest"]
 - !private ["PSo12UIAppearance", "URLSession"]
 - ["PSo12UIAppearance", "activityIndicator"]
 - !private ["PSo12UIAppearance", "addGestureRecognizer"]
 - !private ["PSo12UIAppearance", "addSubview"]
+- !private ["PSo12UIAppearance", "alpha"]
+- !private ["PSo12UIAppearance", "animate"]
 - ["PSo12UIAppearance", "app_icon"]
 - !private ["PSo12UIAppearance", "backgroundColor"]
 - ["PSo12UIAppearance", "banner_log_id"]
 - ["PSo12UIAppearance", "banner_params"]
 - !private ["PSo12UIAppearance", "clipsToBounds"]
+- ["PSo12UIAppearance", "contentView"]
 - ["PSo12UIAppearance", "defaultFavorrBackgroundColor"]
 - ["PSo12UIAppearance", "defaultFavorrTextColor"]
 - ["PSo12UIAppearance", "defaultInstallButtonColorType"]
@@ -1824,17 +1875,21 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UIImageView"]
 - !private ["PSo21UIAppearanceContainer", "UILabel"]
 - !private ["PSo21UIAppearanceContainer", "UITapGestureRecognizer"]
+- !private ["PSo21UIAppearanceContainer", "UIView"]
 - !private ["PSo21UIAppearanceContainer", "URL"]
 - !private ["PSo21UIAppearanceContainer", "URLRequest"]
 - !private ["PSo21UIAppearanceContainer", "URLSession"]
 - ["PSo21UIAppearanceContainer", "activityIndicator"]
 - !private ["PSo21UIAppearanceContainer", "addGestureRecognizer"]
 - !private ["PSo21UIAppearanceContainer", "addSubview"]
+- !private ["PSo21UIAppearanceContainer", "alpha"]
+- !private ["PSo21UIAppearanceContainer", "animate"]
 - ["PSo21UIAppearanceContainer", "app_icon"]
 - !private ["PSo21UIAppearanceContainer", "backgroundColor"]
 - ["PSo21UIAppearanceContainer", "banner_log_id"]
 - ["PSo21UIAppearanceContainer", "banner_params"]
 - !private ["PSo21UIAppearanceContainer", "clipsToBounds"]
+- ["PSo21UIAppearanceContainer", "contentView"]
 - ["PSo21UIAppearanceContainer", "defaultFavorrBackgroundColor"]
 - ["PSo21UIAppearanceContainer", "defaultFavorrTextColor"]
 - ["PSo21UIAppearanceContainer", "defaultInstallButtonColorType"]
@@ -1915,17 +1970,21 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "UIImageView"]
 - !private ["PSo17UICoordinateSpace", "UILabel"]
 - !private ["PSo17UICoordinateSpace", "UITapGestureRecognizer"]
+- !private ["PSo17UICoordinateSpace", "UIView"]
 - !private ["PSo17UICoordinateSpace", "URL"]
 - !private ["PSo17UICoordinateSpace", "URLRequest"]
 - !private ["PSo17UICoordinateSpace", "URLSession"]
 - ["PSo17UICoordinateSpace", "activityIndicator"]
 - !private ["PSo17UICoordinateSpace", "addGestureRecognizer"]
 - !private ["PSo17UICoordinateSpace", "addSubview"]
+- !private ["PSo17UICoordinateSpace", "alpha"]
+- !private ["PSo17UICoordinateSpace", "animate"]
 - ["PSo17UICoordinateSpace", "app_icon"]
 - !private ["PSo17UICoordinateSpace", "backgroundColor"]
 - ["PSo17UICoordinateSpace", "banner_log_id"]
 - ["PSo17UICoordinateSpace", "banner_params"]
 - !private ["PSo17UICoordinateSpace", "clipsToBounds"]
+- ["PSo17UICoordinateSpace", "contentView"]
 - ["PSo17UICoordinateSpace", "defaultFavorrBackgroundColor"]
 - ["PSo17UICoordinateSpace", "defaultFavorrTextColor"]
 - ["PSo17UICoordinateSpace", "defaultInstallButtonColorType"]
@@ -1989,17 +2048,21 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "UIImageView"]
 - !private ["PSo13UIDynamicItem", "UILabel"]
 - !private ["PSo13UIDynamicItem", "UITapGestureRecognizer"]
+- !private ["PSo13UIDynamicItem", "UIView"]
 - !private ["PSo13UIDynamicItem", "URL"]
 - !private ["PSo13UIDynamicItem", "URLRequest"]
 - !private ["PSo13UIDynamicItem", "URLSession"]
 - ["PSo13UIDynamicItem", "activityIndicator"]
 - !private ["PSo13UIDynamicItem", "addGestureRecognizer"]
 - !private ["PSo13UIDynamicItem", "addSubview"]
+- !private ["PSo13UIDynamicItem", "alpha"]
+- !private ["PSo13UIDynamicItem", "animate"]
 - ["PSo13UIDynamicItem", "app_icon"]
 - !private ["PSo13UIDynamicItem", "backgroundColor"]
 - ["PSo13UIDynamicItem", "banner_log_id"]
 - ["PSo13UIDynamicItem", "banner_params"]
 - !private ["PSo13UIDynamicItem", "clipsToBounds"]
+- ["PSo13UIDynamicItem", "contentView"]
 - ["PSo13UIDynamicItem", "defaultFavorrBackgroundColor"]
 - ["PSo13UIDynamicItem", "defaultFavorrTextColor"]
 - ["PSo13UIDynamicItem", "defaultInstallButtonColorType"]
@@ -2063,17 +2126,21 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UIImageView"]
 - !private ["PSo18UIFocusEnvironment", "UILabel"]
 - !private ["PSo18UIFocusEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UIFocusEnvironment", "UIView"]
 - !private ["PSo18UIFocusEnvironment", "URL"]
 - !private ["PSo18UIFocusEnvironment", "URLRequest"]
 - !private ["PSo18UIFocusEnvironment", "URLSession"]
 - ["PSo18UIFocusEnvironment", "activityIndicator"]
 - !private ["PSo18UIFocusEnvironment", "addGestureRecognizer"]
 - !private ["PSo18UIFocusEnvironment", "addSubview"]
+- !private ["PSo18UIFocusEnvironment", "alpha"]
+- !private ["PSo18UIFocusEnvironment", "animate"]
 - ["PSo18UIFocusEnvironment", "app_icon"]
 - !private ["PSo18UIFocusEnvironment", "backgroundColor"]
 - ["PSo18UIFocusEnvironment", "banner_log_id"]
 - ["PSo18UIFocusEnvironment", "banner_params"]
 - !private ["PSo18UIFocusEnvironment", "clipsToBounds"]
+- ["PSo18UIFocusEnvironment", "contentView"]
 - ["PSo18UIFocusEnvironment", "defaultFavorrBackgroundColor"]
 - ["PSo18UIFocusEnvironment", "defaultFavorrTextColor"]
 - ["PSo18UIFocusEnvironment", "defaultInstallButtonColorType"]
@@ -2140,17 +2207,21 @@ depends-member:
 - !private ["PSo11UIFocusItem", "UIImageView"]
 - !private ["PSo11UIFocusItem", "UILabel"]
 - !private ["PSo11UIFocusItem", "UITapGestureRecognizer"]
+- !private ["PSo11UIFocusItem", "UIView"]
 - !private ["PSo11UIFocusItem", "URL"]
 - !private ["PSo11UIFocusItem", "URLRequest"]
 - !private ["PSo11UIFocusItem", "URLSession"]
 - ["PSo11UIFocusItem", "activityIndicator"]
 - !private ["PSo11UIFocusItem", "addGestureRecognizer"]
 - !private ["PSo11UIFocusItem", "addSubview"]
+- !private ["PSo11UIFocusItem", "alpha"]
+- !private ["PSo11UIFocusItem", "animate"]
 - ["PSo11UIFocusItem", "app_icon"]
 - !private ["PSo11UIFocusItem", "backgroundColor"]
 - ["PSo11UIFocusItem", "banner_log_id"]
 - ["PSo11UIFocusItem", "banner_params"]
 - !private ["PSo11UIFocusItem", "clipsToBounds"]
+- ["PSo11UIFocusItem", "contentView"]
 - ["PSo11UIFocusItem", "defaultFavorrBackgroundColor"]
 - ["PSo11UIFocusItem", "defaultFavorrTextColor"]
 - ["PSo11UIFocusItem", "defaultInstallButtonColorType"]
@@ -2205,7 +2276,6 @@ depends-member:
 - !private ["CSo11UIImageView", "frame"]
 - !private ["CSo11UIImageView", "image"]
 - !private ["CSo11UIImageView", "init"]
-- !private ["CSo11UIImageView", "isHidden"]
 - !private ["CSo11UIImageView", "layer"]
 - ["CSo7UILabel", "deinit"]
 - !private ["CSo7UILabel", "font"]
@@ -2236,6 +2306,7 @@ depends-member:
 - ["CSo11UIResponder", "UIImageView"]
 - ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UITapGestureRecognizer"]
+- ["CSo11UIResponder", "UIView"]
 - ["CSo11UIResponder", "UIViewController"]
 - !private ["CSo11UIResponder", "URL"]
 - !private ["CSo11UIResponder", "URLRequest"]
@@ -2244,11 +2315,14 @@ depends-member:
 - ["CSo11UIResponder", "activityIndicator"]
 - !private ["CSo11UIResponder", "addGestureRecognizer"]
 - !private ["CSo11UIResponder", "addSubview"]
+- !private ["CSo11UIResponder", "alpha"]
+- !private ["CSo11UIResponder", "animate"]
 - ["CSo11UIResponder", "app_icon"]
 - !private ["CSo11UIResponder", "backgroundColor"]
 - ["CSo11UIResponder", "banner_log_id"]
 - ["CSo11UIResponder", "banner_params"]
 - !private ["CSo11UIResponder", "clipsToBounds"]
+- ["CSo11UIResponder", "contentView"]
 - ["CSo11UIResponder", "defaultFavorrBackgroundColor"]
 - ["CSo11UIResponder", "defaultFavorrTextColor"]
 - ["CSo11UIResponder", "defaultInstallButtonColorType"]
@@ -2314,17 +2388,21 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UIImageView"]
 - !private ["PSo30UIResponderStandardEditActions", "UILabel"]
 - !private ["PSo30UIResponderStandardEditActions", "UITapGestureRecognizer"]
+- !private ["PSo30UIResponderStandardEditActions", "UIView"]
 - !private ["PSo30UIResponderStandardEditActions", "URL"]
 - !private ["PSo30UIResponderStandardEditActions", "URLRequest"]
 - !private ["PSo30UIResponderStandardEditActions", "URLSession"]
 - ["PSo30UIResponderStandardEditActions", "activityIndicator"]
 - !private ["PSo30UIResponderStandardEditActions", "addGestureRecognizer"]
 - !private ["PSo30UIResponderStandardEditActions", "addSubview"]
+- !private ["PSo30UIResponderStandardEditActions", "alpha"]
+- !private ["PSo30UIResponderStandardEditActions", "animate"]
 - ["PSo30UIResponderStandardEditActions", "app_icon"]
 - !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
 - ["PSo30UIResponderStandardEditActions", "banner_log_id"]
 - ["PSo30UIResponderStandardEditActions", "banner_params"]
 - !private ["PSo30UIResponderStandardEditActions", "clipsToBounds"]
+- ["PSo30UIResponderStandardEditActions", "contentView"]
 - ["PSo30UIResponderStandardEditActions", "defaultFavorrBackgroundColor"]
 - ["PSo30UIResponderStandardEditActions", "defaultFavorrTextColor"]
 - ["PSo30UIResponderStandardEditActions", "defaultInstallButtonColorType"]
@@ -2398,17 +2476,21 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UIImageView"]
 - !private ["PSo18UITraitEnvironment", "UILabel"]
 - !private ["PSo18UITraitEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UITraitEnvironment", "UIView"]
 - !private ["PSo18UITraitEnvironment", "URL"]
 - !private ["PSo18UITraitEnvironment", "URLRequest"]
 - !private ["PSo18UITraitEnvironment", "URLSession"]
 - ["PSo18UITraitEnvironment", "activityIndicator"]
 - !private ["PSo18UITraitEnvironment", "addGestureRecognizer"]
 - !private ["PSo18UITraitEnvironment", "addSubview"]
+- !private ["PSo18UITraitEnvironment", "alpha"]
+- !private ["PSo18UITraitEnvironment", "animate"]
 - ["PSo18UITraitEnvironment", "app_icon"]
 - !private ["PSo18UITraitEnvironment", "backgroundColor"]
 - ["PSo18UITraitEnvironment", "banner_log_id"]
 - ["PSo18UITraitEnvironment", "banner_params"]
 - !private ["PSo18UITraitEnvironment", "clipsToBounds"]
+- ["PSo18UITraitEnvironment", "contentView"]
 - ["PSo18UITraitEnvironment", "defaultFavorrBackgroundColor"]
 - ["PSo18UITraitEnvironment", "defaultFavorrTextColor"]
 - ["PSo18UITraitEnvironment", "defaultInstallButtonColorType"]
@@ -2479,6 +2561,7 @@ depends-member:
 - ["CSo6UIView", "UIImageView"]
 - ["CSo6UIView", "UILabel"]
 - ["CSo6UIView", "UITapGestureRecognizer"]
+- ["CSo6UIView", "UIView"]
 - ["CSo6UIView", "UIViewController"]
 - !private ["CSo6UIView", "URL"]
 - !private ["CSo6UIView", "URLRequest"]
@@ -2487,11 +2570,14 @@ depends-member:
 - ["CSo6UIView", "activityIndicator"]
 - !private ["CSo6UIView", "addGestureRecognizer"]
 - !private ["CSo6UIView", "addSubview"]
+- !private ["CSo6UIView", "alpha"]
+- !private ["CSo6UIView", "animate"]
 - ["CSo6UIView", "app_icon"]
 - !private ["CSo6UIView", "backgroundColor"]
 - ["CSo6UIView", "banner_log_id"]
 - ["CSo6UIView", "banner_params"]
 - !private ["CSo6UIView", "clipsToBounds"]
+- ["CSo6UIView", "contentView"]
 - ["CSo6UIView", "defaultFavorrBackgroundColor"]
 - ["CSo6UIView", "defaultFavorrTextColor"]
 - ["CSo6UIView", "defaultInstallButtonColorType"]
@@ -2601,17 +2687,21 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UIImageView"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UILabel"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UITapGestureRecognizer"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "UIView"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "URL"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "URLRequest"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "URLSession"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "activityIndicator"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addGestureRecognizer"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addSubview"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "alpha"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "animate"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "app_icon"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "banner_log_id"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "banner_params"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "clipsToBounds"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "contentView"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "defaultFavorrBackgroundColor"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "defaultFavorrTextColor"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "defaultInstallButtonColorType"]
@@ -2705,6 +2795,7 @@ depends-member:
 - !private ["Ps9_Hashable", "UIImageView"]
 - !private ["Ps9_Hashable", "UILabel"]
 - !private ["Ps9_Hashable", "UITapGestureRecognizer"]
+- !private ["Ps9_Hashable", "UIView"]
 - !private ["Ps9_Hashable", "URL"]
 - !private ["Ps9_Hashable", "URLRequest"]
 - !private ["Ps9_Hashable", "URLSession"]
@@ -2721,6 +2812,8 @@ depends-member:
 - !private ["Ps9_Hashable", "addSubview"]
 - !private ["Ps9_Hashable", "addValue"]
 - !private ["Ps9_Hashable", "adid_string"]
+- !private ["Ps9_Hashable", "alpha"]
+- !private ["Ps9_Hashable", "animate"]
 - !private ["Ps9_Hashable", "apiKey"]
 - !private ["Ps9_Hashable", "apiKeyError"]
 - ["Ps9_Hashable", "app_icon"]
@@ -2731,6 +2824,7 @@ depends-member:
 - ["Ps9_Hashable", "black"]
 - !private ["Ps9_Hashable", "clipsToBounds"]
 - !private ["Ps9_Hashable", "components"]
+- ["Ps9_Hashable", "contentView"]
 - !private ["Ps9_Hashable", "cornerRadius"]
 - !private ["Ps9_Hashable", "data"]
 - !private ["Ps9_Hashable", "dataTask"]
@@ -3062,4 +3156,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-interface-hash: "e264ac9d9e7e46016a5c1a45fc0907b0"
+interface-hash: "7ccd8c0cd7efa323c7b6b21fb3a89d78"

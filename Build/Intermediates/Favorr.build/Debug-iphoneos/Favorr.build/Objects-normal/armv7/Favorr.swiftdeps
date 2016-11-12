@@ -12,62 +12,63 @@ provides-member:
 - ["CSo8UIDevice", "modelName"]
 provides-dynamic-lookup:
 - "pingTimer"
-- "slowSession"
-- "applicationDidBecomeActive"
 - "startSession"
-- "systemVersion"
-- "createTimer"
 - "sharedInstance"
-- "apiKey"
-- "adid_string"
-- "updateSession"
-- "initWithApiKey"
 - "initAdView"
-- "updateSessionWithCompletion"
 - "send_log"
+- "updateSession"
+- "systemVersion"
+- "updateSessionWithCompletion"
+- "ad_available"
+- "apiKey"
+- "systemName"
+- "applicationDidBecomeActive"
+- "stopSession"
+- "applicationWillResignActive"
+- "checkAdAvailable"
+- "deviceName"
+- "sessionId"
+- "adid_string"
+- "initWithApiKey"
+- "slowSession"
 - "uuid_string"
 - "modelName"
 - "modelName"
-- "stopSession"
-- "systemName"
-- "deviceName"
-- "sessionId"
-- "applicationWillResignActive"
+- "createTimer"
 depends-top-level:
-- !private "print"
-- !private "~="
-- !private "CastingPrecedence"
-- "AssignmentPrecedence"
-- "=="
-- "FavorrAdView"
-- "Timer"
-- "Error"
-- !private "utsname"
-- "Void"
-- !private "!="
-- !private "Mirror"
-- !private "URLSession"
-- "TimeInterval"
-- !private "JSONSerialization"
-- "Bool"
-- "Favorr"
-- "Int"
-- "UIDevice"
-- "CGRect"
-- !private "ASIdentifierManager"
-- !private "Int8"
-- !private "URL"
-- !private "NotificationCenter"
-- "BooleanLiteralType"
-- !private "UnicodeScalar"
-- !private "URLRequest"
-- !private "Array"
-- !private "UInt8"
-- "String"
 - "NSObject"
-- !private "StringLiteralType"
-- !private "+"
+- "UIDevice"
+- "Void"
+- "=="
+- "AssignmentPrecedence"
+- !private "CastingPrecedence"
+- "TimeInterval"
+- "String"
+- !private "Int8"
+- !private "~="
+- !private "JSONSerialization"
+- !private "UInt8"
+- !private "URL"
+- !private "ASIdentifierManager"
+- !private "URLRequest"
+- !private "!="
+- !private "UnicodeScalar"
 - !private "uname"
+- !private "URLSession"
+- !private "+"
+- "BooleanLiteralType"
+- "Favorr"
+- "Bool"
+- "FavorrAdView"
+- !private "utsname"
+- !private "Array"
+- "CGRect"
+- "Error"
+- "Timer"
+- !private "NotificationCenter"
+- "Int"
+- !private "StringLiteralType"
+- !private "Mirror"
 depends-member:
 - !private ["CSo19ASIdentifierManager", "advertisingIdentifier"]
 - ["CSo19ASIdentifierManager", "deinit"]
@@ -90,6 +91,7 @@ depends-member:
 - !private ["Ps9AnyObject", "URLRequest"]
 - !private ["Ps9AnyObject", "URLSession"]
 - !private ["Ps9AnyObject", "UnicodeScalar"]
+- ["Ps9AnyObject", "ad_available"]
 - !private ["Ps9AnyObject", "addObserver"]
 - !private ["Ps9AnyObject", "addingPercentEncoding"]
 - ["Ps9AnyObject", "adid_string"]
@@ -98,6 +100,7 @@ depends-member:
 - !private ["Ps9AnyObject", "apiKeyError"]
 - ["Ps9AnyObject", "applicationDidBecomeActive"]
 - ["Ps9AnyObject", "applicationWillResignActive"]
+- ["Ps9AnyObject", "checkAdAvailable"]
 - ["Ps9AnyObject", "createTimer"]
 - !private ["Ps9AnyObject", "current"]
 - !private ["Ps9AnyObject", "data"]
@@ -115,7 +118,6 @@ depends-member:
 - ["Ps9AnyObject", "modelName"]
 - !private ["Ps9AnyObject", "name"]
 - ["Ps9AnyObject", "pingTimer"]
-- !private ["Ps9AnyObject", "print"]
 - !private ["Ps9AnyObject", "resume"]
 - !private ["Ps9AnyObject", "scheduledTimer"]
 - ["Ps9AnyObject", "send_log"]
@@ -158,6 +160,7 @@ depends-member:
 - !private ["Ps7CVarArg", "URLRequest"]
 - !private ["Ps7CVarArg", "URLSession"]
 - !private ["Ps7CVarArg", "UnicodeScalar"]
+- ["Ps7CVarArg", "ad_available"]
 - !private ["Ps7CVarArg", "addObserver"]
 - !private ["Ps7CVarArg", "addingPercentEncoding"]
 - ["Ps7CVarArg", "adid_string"]
@@ -166,6 +169,7 @@ depends-member:
 - !private ["Ps7CVarArg", "apiKeyError"]
 - ["Ps7CVarArg", "applicationDidBecomeActive"]
 - ["Ps7CVarArg", "applicationWillResignActive"]
+- ["Ps7CVarArg", "checkAdAvailable"]
 - ["Ps7CVarArg", "createTimer"]
 - !private ["Ps7CVarArg", "current"]
 - !private ["Ps7CVarArg", "data"]
@@ -184,7 +188,6 @@ depends-member:
 - ["Ps7CVarArg", "modelName"]
 - !private ["Ps7CVarArg", "name"]
 - ["Ps7CVarArg", "pingTimer"]
-- !private ["Ps7CVarArg", "print"]
 - !private ["Ps7CVarArg", "resume"]
 - !private ["Ps7CVarArg", "scheduledTimer"]
 - ["Ps7CVarArg", "send_log"]
@@ -205,7 +208,6 @@ depends-member:
 - !private ["Ps7CVarArg", "utsname"]
 - ["Ps7CVarArg", "uuid_string"]
 - ["Ps7CVarArg", ""]
-- !private ["Vs9Character", "deinit"]
 - ["V10Foundation12CharacterSet", "deinit"]
 - !private ["V10Foundation12CharacterSet", "urlHostAllowed"]
 - !private ["Vs11ClosedRange", "deinit"]
@@ -241,6 +243,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "URLRequest"]
 - !private ["Ps28CustomDebugStringConvertible", "URLSession"]
 - !private ["Ps28CustomDebugStringConvertible", "UnicodeScalar"]
+- ["Ps28CustomDebugStringConvertible", "ad_available"]
 - !private ["Ps28CustomDebugStringConvertible", "addObserver"]
 - !private ["Ps28CustomDebugStringConvertible", "addValue"]
 - !private ["Ps28CustomDebugStringConvertible", "addingPercentEncoding"]
@@ -250,6 +253,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "apiKeyError"]
 - ["Ps28CustomDebugStringConvertible", "applicationDidBecomeActive"]
 - ["Ps28CustomDebugStringConvertible", "applicationWillResignActive"]
+- ["Ps28CustomDebugStringConvertible", "checkAdAvailable"]
 - ["Ps28CustomDebugStringConvertible", "createTimer"]
 - !private ["Ps28CustomDebugStringConvertible", "current"]
 - !private ["Ps28CustomDebugStringConvertible", "data"]
@@ -269,7 +273,6 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "modelName"]
 - !private ["Ps28CustomDebugStringConvertible", "name"]
 - ["Ps28CustomDebugStringConvertible", "pingTimer"]
-- !private ["Ps28CustomDebugStringConvertible", "print"]
 - !private ["Ps28CustomDebugStringConvertible", "resume"]
 - !private ["Ps28CustomDebugStringConvertible", "scheduledTimer"]
 - ["Ps28CustomDebugStringConvertible", "send_log"]
@@ -277,7 +280,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "shared"]
 - ["Ps28CustomDebugStringConvertible", "sharedInstance"]
 - ["Ps28CustomDebugStringConvertible", "slowSession"]
-- ["Ps28CustomDebugStringConvertible", "some"]
 - ["Ps28CustomDebugStringConvertible", "startSession"]
 - ["Ps28CustomDebugStringConvertible", "stopSession"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
@@ -309,7 +311,6 @@ depends-member:
 - !private ["Ps17CustomReflectable", "httpBody"]
 - !private ["Ps17CustomReflectable", "httpMethod"]
 - !private ["Ps17CustomReflectable", "init"]
-- ["Ps17CustomReflectable", "some"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps17CustomReflectable", "uuidString"]
 - !private ["Ps23CustomStringConvertible", "ASIdentifierManager"]
@@ -329,6 +330,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "URLSession"]
 - !private ["Ps23CustomStringConvertible", "UnicodeScalar"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "ad_available"]
 - !private ["Ps23CustomStringConvertible", "addObserver"]
 - !private ["Ps23CustomStringConvertible", "addValue"]
 - !private ["Ps23CustomStringConvertible", "addingPercentEncoding"]
@@ -338,6 +340,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "apiKeyError"]
 - ["Ps23CustomStringConvertible", "applicationDidBecomeActive"]
 - ["Ps23CustomStringConvertible", "applicationWillResignActive"]
+- ["Ps23CustomStringConvertible", "checkAdAvailable"]
 - !private ["Ps23CustomStringConvertible", "children"]
 - ["Ps23CustomStringConvertible", "createTimer"]
 - !private ["Ps23CustomStringConvertible", "current"]
@@ -359,7 +362,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "modelName"]
 - !private ["Ps23CustomStringConvertible", "name"]
 - ["Ps23CustomStringConvertible", "pingTimer"]
-- !private ["Ps23CustomStringConvertible", "print"]
 - !private ["Ps23CustomStringConvertible", "resume"]
 - !private ["Ps23CustomStringConvertible", "scheduledTimer"]
 - ["Ps23CustomStringConvertible", "send_log"]
@@ -412,6 +414,7 @@ depends-member:
 - ["Ps9Equatable", "_getEmbeddedNSError"]
 - ["Ps9Equatable", "_toAnyHashable"]
 - ["Ps9Equatable", "_userInfo"]
+- ["Ps9Equatable", "ad_available"]
 - !private ["Ps9Equatable", "addObserver"]
 - !private ["Ps9Equatable", "addValue"]
 - !private ["Ps9Equatable", "addingPercentEncoding"]
@@ -423,6 +426,7 @@ depends-member:
 - !private ["Ps9Equatable", "apiKeyNotFound"]
 - ["Ps9Equatable", "applicationDidBecomeActive"]
 - ["Ps9Equatable", "applicationWillResignActive"]
+- ["Ps9Equatable", "checkAdAvailable"]
 - ["Ps9Equatable", "createTimer"]
 - !private ["Ps9Equatable", "current"]
 - !private ["Ps9Equatable", "data"]
@@ -445,10 +449,10 @@ depends-member:
 - !private ["Ps9Equatable", "name"]
 - !private ["Ps9Equatable", "networkError"]
 - ["Ps9Equatable", "pingTimer"]
-- !private ["Ps9Equatable", "print"]
 - !private ["Ps9Equatable", "resume"]
 - !private ["Ps9Equatable", "scheduledTimer"]
 - ["Ps9Equatable", "send_log"]
+- !private ["Ps9Equatable", "serverError"]
 - ["Ps9Equatable", "sessionId"]
 - !private ["Ps9Equatable", "shared"]
 - ["Ps9Equatable", "sharedInstance"]
@@ -476,8 +480,8 @@ depends-member:
 - !private ["Ps5Error", "deinit"]
 - ["Ps5Error", "hashValue"]
 - !private ["Ps5Error", "jsonError"]
-- !private ["Ps5Error", "localizedDescription"]
 - !private ["Ps5Error", "networkError"]
+- !private ["Ps5Error", "serverError"]
 - ["Ps5Error", ""]
 - !private ["Ps25ExpressibleByArrayLiteral", "Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "allowFragments"]
@@ -493,7 +497,6 @@ depends-member:
 - !private ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps23ExpressibleByNilLiteral", "UIApplicationDidBecomeActive"]
 - !private ["Ps23ExpressibleByNilLiteral", "UIApplicationWillResignActive"]
-- ["Ps23ExpressibleByNilLiteral", "some"]
 - !private ["Ps32ExpressibleByStringInterpolation", "addingPercentEncoding"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps26ExpressibleByStringLiteral", "addingPercentEncoding"]
@@ -517,11 +520,13 @@ depends-member:
 - !private ["C6Favorr6Favorr", "URLRequest"]
 - !private ["C6Favorr6Favorr", "URLSession"]
 - ["C6Favorr6Favorr", "Void"]
+- ["C6Favorr6Favorr", "ad_available"]
 - ["C6Favorr6Favorr", "adid_string"]
 - ["C6Favorr6Favorr", "apiKey"]
 - ["C6Favorr6Favorr", "apiKeyError"]
 - ["C6Favorr6Favorr", "applicationDidBecomeActive"]
 - ["C6Favorr6Favorr", "applicationWillResignActive"]
+- ["C6Favorr6Favorr", "checkAdAvailable"]
 - ["C6Favorr6Favorr", "createTimer"]
 - ["C6Favorr6Favorr", "deinit"]
 - ["C6Favorr6Favorr", "deviceName"]
@@ -530,7 +535,6 @@ depends-member:
 - ["C6Favorr6Favorr", "initWithApiKey"]
 - ["C6Favorr6Favorr", "modelName"]
 - ["C6Favorr6Favorr", "pingTimer"]
-- !private ["C6Favorr6Favorr", "print"]
 - ["C6Favorr6Favorr", "send_log"]
 - ["C6Favorr6Favorr", "sessionId"]
 - ["C6Favorr6Favorr", "sharedInstance"]
@@ -545,7 +549,6 @@ depends-member:
 - ["C6Favorr12FavorrAdView", "deinit"]
 - !private ["C6Favorr12FavorrAdView", "init"]
 - !private ["C6Favorr12FavorrAdView", "unitId"]
-- !private ["Sf", "deinit"]
 - !private ["Ps8Hashable", "ASIdentifierManager"]
 - ["Ps8Hashable", "Favorr"]
 - !private ["Ps8Hashable", "FavorrAdView"]
@@ -568,6 +571,7 @@ depends-member:
 - ["Ps8Hashable", "_getEmbeddedNSError"]
 - ["Ps8Hashable", "_toAnyHashable"]
 - ["Ps8Hashable", "_userInfo"]
+- ["Ps8Hashable", "ad_available"]
 - !private ["Ps8Hashable", "addObserver"]
 - !private ["Ps8Hashable", "addValue"]
 - !private ["Ps8Hashable", "addingPercentEncoding"]
@@ -578,6 +582,7 @@ depends-member:
 - !private ["Ps8Hashable", "apiKeyNotFound"]
 - ["Ps8Hashable", "applicationDidBecomeActive"]
 - ["Ps8Hashable", "applicationWillResignActive"]
+- ["Ps8Hashable", "checkAdAvailable"]
 - ["Ps8Hashable", "createTimer"]
 - !private ["Ps8Hashable", "current"]
 - !private ["Ps8Hashable", "data"]
@@ -600,10 +605,10 @@ depends-member:
 - !private ["Ps8Hashable", "name"]
 - !private ["Ps8Hashable", "networkError"]
 - ["Ps8Hashable", "pingTimer"]
-- !private ["Ps8Hashable", "print"]
 - !private ["Ps8Hashable", "resume"]
 - !private ["Ps8Hashable", "scheduledTimer"]
 - ["Ps8Hashable", "send_log"]
+- !private ["Ps8Hashable", "serverError"]
 - ["Ps8Hashable", "sessionId"]
 - !private ["Ps8Hashable", "shared"]
 - ["Ps8Hashable", "sharedInstance"]
@@ -640,9 +645,7 @@ depends-member:
 - !private ["Vs16IndexingIterator", "Element"]
 - ["Si", "deinit"]
 - !private ["Si", "hashValue"]
-- !private ["Vs5Int16", "deinit"]
 - ["Vs5Int32", "deinit"]
-- !private ["Vs5Int64", "deinit"]
 - !private ["Vs4Int8", "deinit"]
 - !private ["Ps7Integer", "hashValue"]
 - !private ["Ps7Integer", "init"]
@@ -689,6 +692,7 @@ depends-member:
 - !private ["CSo8NSObject", "URLSession"]
 - !private ["CSo8NSObject", "UnicodeScalar"]
 - ["CSo8NSObject", "Void"]
+- ["CSo8NSObject", "ad_available"]
 - !private ["CSo8NSObject", "addObserver"]
 - !private ["CSo8NSObject", "addingPercentEncoding"]
 - ["CSo8NSObject", "adid_string"]
@@ -697,6 +701,7 @@ depends-member:
 - !private ["CSo8NSObject", "apiKeyError"]
 - ["CSo8NSObject", "applicationDidBecomeActive"]
 - ["CSo8NSObject", "applicationWillResignActive"]
+- ["CSo8NSObject", "checkAdAvailable"]
 - ["CSo8NSObject", "createTimer"]
 - !private ["CSo8NSObject", "current"]
 - !private ["CSo8NSObject", "data"]
@@ -715,7 +720,6 @@ depends-member:
 - ["CSo8NSObject", "modelName"]
 - !private ["CSo8NSObject", "name"]
 - ["CSo8NSObject", "pingTimer"]
-- !private ["CSo8NSObject", "print"]
 - !private ["CSo8NSObject", "resume"]
 - !private ["CSo8NSObject", "scheduledTimer"]
 - ["CSo8NSObject", "send_log"]
@@ -749,6 +753,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "URLRequest"]
 - !private ["PSo16NSObjectProtocol", "URLSession"]
 - !private ["PSo16NSObjectProtocol", "UnicodeScalar"]
+- ["PSo16NSObjectProtocol", "ad_available"]
 - !private ["PSo16NSObjectProtocol", "addObserver"]
 - !private ["PSo16NSObjectProtocol", "addingPercentEncoding"]
 - ["PSo16NSObjectProtocol", "adid_string"]
@@ -757,6 +762,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "apiKeyError"]
 - ["PSo16NSObjectProtocol", "applicationDidBecomeActive"]
 - ["PSo16NSObjectProtocol", "applicationWillResignActive"]
+- ["PSo16NSObjectProtocol", "checkAdAvailable"]
 - ["PSo16NSObjectProtocol", "createTimer"]
 - !private ["PSo16NSObjectProtocol", "current"]
 - !private ["PSo16NSObjectProtocol", "data"]
@@ -774,7 +780,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "modelName"]
 - !private ["PSo16NSObjectProtocol", "name"]
 - ["PSo16NSObjectProtocol", "pingTimer"]
-- !private ["PSo16NSObjectProtocol", "print"]
 - !private ["PSo16NSObjectProtocol", "resume"]
 - !private ["PSo16NSObjectProtocol", "scheduledTimer"]
 - ["PSo16NSObjectProtocol", "send_log"]
@@ -808,7 +813,6 @@ depends-member:
 - !private ["Sq", "UIApplicationDidBecomeActive"]
 - !private ["Sq", "UIApplicationWillResignActive"]
 - ["Sq", "deinit"]
-- ["Sq", "some"]
 - !private ["Vs5Range", "deinit"]
 - !private ["Ps16RawRepresentable", "Element"]
 - !private ["Ps16RawRepresentable", "UIApplicationDidBecomeActive"]
@@ -893,10 +897,6 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "unitId"]
 - !private ["CSo6UIView", "init"]
 - !private ["CSo6UIView", "unitId"]
-- !private ["Su", "deinit"]
-- !private ["Vs6UInt16", "deinit"]
-- !private ["Vs6UInt32", "deinit"]
-- !private ["Vs6UInt64", "deinit"]
 - !private ["Vs5UInt8", "deinit"]
 - !private ["Vs5UInt8", "init"]
 - ["V10Foundation3URL", "deinit"]
@@ -960,6 +960,7 @@ depends-member:
 - ["Ps9_Hashable", "_getEmbeddedNSError"]
 - ["Ps9_Hashable", "_toAnyHashable"]
 - ["Ps9_Hashable", "_userInfo"]
+- ["Ps9_Hashable", "ad_available"]
 - !private ["Ps9_Hashable", "addObserver"]
 - !private ["Ps9_Hashable", "addValue"]
 - !private ["Ps9_Hashable", "addingPercentEncoding"]
@@ -970,6 +971,7 @@ depends-member:
 - !private ["Ps9_Hashable", "apiKeyNotFound"]
 - ["Ps9_Hashable", "applicationDidBecomeActive"]
 - ["Ps9_Hashable", "applicationWillResignActive"]
+- ["Ps9_Hashable", "checkAdAvailable"]
 - ["Ps9_Hashable", "createTimer"]
 - !private ["Ps9_Hashable", "current"]
 - !private ["Ps9_Hashable", "data"]
@@ -992,10 +994,10 @@ depends-member:
 - !private ["Ps9_Hashable", "name"]
 - !private ["Ps9_Hashable", "networkError"]
 - ["Ps9_Hashable", "pingTimer"]
-- !private ["Ps9_Hashable", "print"]
 - !private ["Ps9_Hashable", "resume"]
 - !private ["Ps9_Hashable", "scheduledTimer"]
 - ["Ps9_Hashable", "send_log"]
+- !private ["Ps9_Hashable", "serverError"]
 - ["Ps9_Hashable", "sessionId"]
 - !private ["Ps9_Hashable", "shared"]
 - ["Ps9_Hashable", "sharedInstance"]
@@ -1053,6 +1055,8 @@ depends-member:
 - ["OC6Favorr6Favorr11apiKeyError", "hashValue"]
 - ["OC6Favorr6Favorr11apiKeyError", "jsonError"]
 - ["OC6Favorr6Favorr11apiKeyError", "networkError"]
+- ["OC6Favorr6Favorr11apiKeyError", "serverError"]
+- ["OC6Favorr6Favorr11apiKeyError", "unkownError"]
 - ["VSC7utsname", "deinit"]
 - !private ["VSC7utsname", "init"]
 - !private ["VSC7utsname", "machine"]
@@ -1066,7 +1070,6 @@ depends-nominal:
 - !private "PSo15CALayerDelegate"
 - "VSC6CGRect"
 - "Ps7CVarArg"
-- !private "Vs9Character"
 - "V10Foundation12CharacterSet"
 - !private "Vs11ClosedRange"
 - !private "Ps10Collection"
@@ -1075,7 +1078,7 @@ depends-nominal:
 - !private "Vs14CountableRange"
 - "Ps28CustomDebugStringConvertible"
 - !private "Ps29CustomPlaygroundQuickLookable"
-- "Ps17CustomReflectable"
+- !private "Ps17CustomReflectable"
 - "Ps23CustomStringConvertible"
 - "V10Foundation4Data"
 - "Vs10Dictionary"
@@ -1087,22 +1090,19 @@ depends-nominal:
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - !private "Ps27ExpressibleByIntegerLiteral"
-- "Ps23ExpressibleByNilLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
 - !private "Ps32ExpressibleByStringInterpolation"
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - "C6Favorr6Favorr"
 - "C6Favorr12FavorrAdView"
-- !private "Sf"
 - "Ps8Hashable"
 - "SQ"
 - !private "Ps9Indexable"
 - !private "Ps13IndexableBase"
 - !private "Vs16IndexingIterator"
 - "Si"
-- !private "Vs5Int16"
 - "Vs5Int32"
-- !private "Vs5Int64"
 - !private "Vs4Int8"
 - !private "Ps7Integer"
 - !private "Ps17IntegerArithmetic"
@@ -1150,10 +1150,6 @@ depends-nominal:
 - !private "PSo30UIResponderStandardEditActions"
 - !private "PSo18UITraitEnvironment"
 - !private "CSo6UIView"
-- !private "Su"
-- !private "Vs6UInt16"
-- !private "Vs6UInt32"
-- !private "Vs6UInt64"
 - !private "Vs5UInt8"
 - "V10Foundation3URL"
 - "V10Foundation10URLRequest"
@@ -1199,6 +1195,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
-interface-hash: "bd1d2a01d0d2fc170bfd15779e8b640a"
+interface-hash: "b1914fe3d18d59558b6ad2326ade0ebb"

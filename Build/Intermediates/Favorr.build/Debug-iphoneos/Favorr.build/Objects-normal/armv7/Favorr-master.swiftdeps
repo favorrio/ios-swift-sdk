@@ -1,6 +1,6 @@
-version: "Apple Swift version 3.0 (swiftlang-800.0.46.2 clang-800.0.38)"
-options: "7e0bc01f3df3618ee74c1725340fc0a6"
-build_time: [530084306, 63534000]
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "766ae61958e270a04b4aebbf251a629b"
+build_time: [532236408, 777436000]
 inputs:
-  "/Users/kouohhashi/Documents/iPhone/Favorr/Favorr/Favorr.swift": [530081211, 0]
-  "/Users/kouohhashi/Documents/iPhone/Favorr/Favorr/FavorrAdView.swift": [530081821, 0]
+  "/Users/kouohhashi/Documents/iPhone/Favorr/Favorr/Favorr.swift": [532220742, 0]
+  "/Users/kouohhashi/Documents/iPhone/Favorr/Favorr/FavorrAdView.swift": [532221671, 0]
