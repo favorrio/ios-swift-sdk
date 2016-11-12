@@ -789,27 +789,281 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     // change textcolor
     public func updateTextColor(color:UIColor){
         self.favorrTextColor = color
-        self.drawAd()
+        // self.drawAd()
+        
+        if let params = self.banner_params {
+            
+            // add title label
+            if let val = params["title"] as? String {
+                DispatchQueue.main.async {
+                    self.title_label?.text = val
+                    // self.title_label?.isHidden = false
+                    
+                    if let favorrTextColor = self.favorrTextColor {
+                        self.title_label?.textColor = favorrTextColor
+                    } else {
+                        self.title_label?.textColor = self.defaultFavorrTextColor
+                    }
+                    
+                }
+            }
+            
+            // add price label
+            if let val = params["price"] as? String {
+                DispatchQueue.main.async {
+                    self.price_label?.text = val
+                    // self.price_label?.isHidden = false
+                    if let favorrTextColor = self.favorrTextColor {
+                        self.price_label?.textColor = favorrTextColor
+                    } else {
+                        self.price_label?.textColor = self.defaultFavorrTextColor
+                    }
+                }
+            }
+            
+            
+            
+            // add review count label
+            if let val = params["userRatingCountForCurrentVersion"] as? Int {
+                let str = String(val)
+                DispatchQueue.main.async {
+                    self.review_count_label?.text = "("+str+")"
+                    self.review_count_label?.isHidden = false
+                    if let favorrTextColor = self.favorrTextColor {
+                        self.review_count_label?.textColor = favorrTextColor
+                    } else {
+                        self.review_count_label?.textColor = self.defaultFavorrTextColor
+                    }
+                }
+            }
+            
+        }
     }
     
     
     // change star color
     public func updateStarColor(type:FavorrImageColorType) {
         self.starColorType = type
-        self.drawAd()
+        
+        
+        
+        
+        
+
+        
+
+        
+        // update stars
+        
+        // framework bundle
+        let frameWorkBundle = Bundle(for: Favorr.self)
+        
+        if let params = self.banner_params {
+            
+            // stars
+            var star_empty_icon = "star_empty_icon"
+            var star_half_icon = "star_half_icon"
+            var star_full_icon = "star_full_icon"
+            if let starColorType = self.starColorType {
+                if starColorType == .white {
+                    star_empty_icon = "star_empty_icon_white"
+                    star_half_icon = "star_half_icon_white"
+                    star_full_icon = "star_full_icon_white"
+                } else if starColorType == .black {
+                    star_empty_icon = "star_empty_icon"
+                    star_half_icon = "star_half_icon"
+                    star_full_icon = "star_full_icon"
+                } else if starColorType == .orange {
+                    star_empty_icon = "star_empty_icon_orange"
+                    star_half_icon = "star_half_icon_orange"
+                    star_full_icon = "star_full_icon_orange"
+                } else if starColorType == .green {
+                    star_empty_icon = "star_empty_icon_green"
+                    star_half_icon = "star_half_icon_green"
+                    star_full_icon = "star_full_icon_green"
+                }
+            } else {
+                if self.defaultStarColorType == .white {
+                    star_empty_icon = "star_empty_icon_white"
+                    star_half_icon = "star_half_icon_white"
+                    star_full_icon = "star_full_icon_white"
+                } else if self.defaultStarColorType == .black {
+                    star_empty_icon = "star_empty_icon"
+                    star_half_icon = "star_half_icon"
+                    star_full_icon = "star_full_icon"
+                } else if self.defaultStarColorType == .orange {
+                    star_empty_icon = "star_empty_icon_orange"
+                    star_half_icon = "star_half_icon_orange"
+                    star_full_icon = "star_full_icon_orange"
+                } else if self.defaultStarColorType == .green {
+                    star_empty_icon = "star_empty_icon_green"
+                    star_half_icon = "star_half_icon_green"
+                    star_full_icon = "star_full_icon_green"
+                }
+            }
+            
+            
+            
+            // stars 1
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 0.5 {
+                    DispatchQueue.main.async {
+                        
+                        self.star_icon_1?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_1?.isHidden = false
+                    }
+                } else if val < 1.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_1?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_1?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_1?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_1?.isHidden = false
+                    }
+                }
+            }
+            
+            // stars 2
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 1.5 {
+                    DispatchQueue.main.async {
+                        self.star_icon_2?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_2?.isHidden = false
+                    }
+                } else if val < 2.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_2?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_2?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_2?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_2?.isHidden = false
+                    }
+                }
+            }
+            
+            // stars 3
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 2.5 {
+                    DispatchQueue.main.async {
+                        self.star_icon_3?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_3?.isHidden = false
+                    }
+                } else if val < 3.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_3?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_3?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_3?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_3?.isHidden = false
+                    }
+                }
+            }
+            
+            // stars 4
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 3.5 {
+                    DispatchQueue.main.async {
+                        self.star_icon_4?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_4?.isHidden = false
+                    }
+                } else if val < 4.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_4?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_4?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_4?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_4?.isHidden = false
+                    }
+                }
+            }
+            
+            // stars 5
+            if let val = params["averageUserRatingForCurrentVersion"] as? Float {
+                if val < 4.5 {
+                    DispatchQueue.main.async {
+                        self.star_icon_5?.image = UIImage(named: star_empty_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_5?.isHidden = false
+                    }
+                } else if val < 5.0 {
+                    DispatchQueue.main.async {
+                        self.star_icon_5?.image = UIImage(named: star_half_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_5?.isHidden = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.star_icon_5?.image = UIImage(named: star_full_icon, in: frameWorkBundle, compatibleWith: nil)
+                        // self.star_icon_5?.isHidden = false
+                    }
+                }
+            }
+        }
+
     }
 
     // change install button color
     public func updateInstallButtonColor(type:FavorrImageColorType) {
         self.installButtonColorType = type
-        self.drawAd()
+        
+        // update install button colortype
+        
+        // framework bundle
+        let frameWorkBundle = Bundle(for: Favorr.self)
+        
+//        if let params = self.banner_params {
+        
+        // install icon
+        
+        var install_icon_image = "install_icon"
+        if let installButtonColorType = self.installButtonColorType {
+            if installButtonColorType == .white {
+                install_icon_image = "install_icon_white"
+            } else if installButtonColorType == .black {
+                install_icon_image = "install_icon_black"
+            } else if installButtonColorType == .green {
+                install_icon_image = "install_icon"
+            } else if installButtonColorType == .orange {
+                install_icon_image = "install_icon_orange"
+            }
+        } else {
+            if self.defaultInstallButtonColorType == .white {
+                install_icon_image = "install_icon_white"
+            } else if self.defaultInstallButtonColorType == .black {
+                install_icon_image = "install_icon_black"
+            } else if self.defaultInstallButtonColorType == .green {
+                install_icon_image = "install_icon"
+            } else if self.defaultInstallButtonColorType == .orange {
+                install_icon_image = "install_icon_orange"
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.install_icon?.image = UIImage(named: install_icon_image, in: frameWorkBundle, compatibleWith: nil)
+            // self.install_icon?.isHidden = false
+        }
+        // }
     }
-    
-    
     
     // change background color
     public func updateBackgroundColor(color:UIColor) {
         self.favorrBackgroundColor = color
-        self.drawAd()
+//        self.drawAd()
+        
+        // backgroundColor
+        DispatchQueue.main.async {
+            if let favorrBackgroundColor = self.favorrBackgroundColor {
+                self.contentView.backgroundColor = favorrBackgroundColor
+            } else {
+                self.contentView.backgroundColor = self.defaultFavorrBackgroundColor
+            }
+        }
     }
+      
 }
