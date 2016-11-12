@@ -391,7 +391,11 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                         // draw banner
                         self.banner_params = ad_info as! [String : Any]
                         // self.drawAd(params: ad_info as! [String : Any])
+                        
                         self.drawAd()
+                        
+                        // kick delegate method -> as successful
+                        self.delegate?.FavorrAdViewDelegateDidReceiveAd(parameters: params)
                         
                     } else {
                         
@@ -688,9 +692,9 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 }
             }
             
-            // kick delegate method
-            // as successful
-            self.delegate?.FavorrAdViewDelegateDidReceiveAd(parameters: params)
+//            // kick delegate method
+//            // as successful
+//            self.delegate?.FavorrAdViewDelegateDidReceiveAd(parameters: params)
         }
 
     }
