@@ -74,6 +74,8 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
     
     var contentView:UIView!
     
+    var isNetworking = false
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -281,6 +283,9 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
+            
+            Favorr.sharedInstance.isNetworking = false
+            
             // stop indicator
             DispatchQueue.main.async {
                 self.activityIndicator?.stopAnimating()
@@ -409,6 +414,12 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
                 self.delegate?.FavorrAdViewDelegateDidReceiveError(error: requestAdError.jsonError, view: self)
             }
         }
+        
+        if Favorr.sharedInstance.isNetworking == true{
+            return;
+        }
+        Favorr.sharedInstance.isNetworking = true
+        
         task.resume()
     }
     

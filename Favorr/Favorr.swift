@@ -26,6 +26,8 @@ public class Favorr: NSObject {
     
     var sessionId:String?
     
+    var isNetworking = false
+    
     public var ad_available = false
     
     //MARK: Shared Instance
@@ -197,6 +199,9 @@ public class Favorr: NSObject {
         }
         // print("params:\(params)")
         
+        
+        
+        
         var request = URLRequest(url: URL(string: "https://cp1.favorr.io/update_session")!)
         request.httpMethod = "POST"
         
@@ -214,6 +219,9 @@ public class Favorr: NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            Favorr.sharedInstance.isNetworking = false
+            
             if error != nil {
                 // show error
                 
@@ -250,6 +258,12 @@ public class Favorr: NSObject {
                 return;
             }
         }
+        
+        if Favorr.sharedInstance.isNetworking == true{
+            return;
+        }
+        Favorr.sharedInstance.isNetworking = true
+        
         task.resume()
     }
     
@@ -304,6 +318,9 @@ public class Favorr: NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            Favorr.sharedInstance.isNetworking = false
+            
             if error != nil {
                 // show error
 //                print(error!.localizedDescription)
@@ -335,6 +352,12 @@ public class Favorr: NSObject {
                 // print("error in JSONSerialization 4")
             }
         }
+        
+        if Favorr.sharedInstance.isNetworking == true{
+            return;
+        }
+        Favorr.sharedInstance.isNetworking = true
+        
         task.resume()
     }
     
