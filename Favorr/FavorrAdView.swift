@@ -80,7 +80,7 @@ public class FavorrAdView: UIView, SKStoreProductViewControllerDelegate {
         super.init(frame: frame)
         
         // base content view
-        self.contentView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.width))
+        self.contentView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
         self.contentView.backgroundColor = defaultFavorrBackgroundColor
         self.contentView.isHidden = true
         self.addSubview(self.contentView)

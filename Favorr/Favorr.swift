@@ -469,7 +469,7 @@ public class Favorr: NSObject {
     
     
     // check availability
-    public func checkAdAvailable(unitId:String, completion:@escaping ((String?, Error?) -> Void)){
+    public func checkAdAvailable(unitId:String, completion:@escaping (( Bool?, Error?) -> Void)){
         
         // get data from favorr rest api
         
@@ -491,7 +491,7 @@ public class Favorr: NSObject {
         } catch {
             // print("Dim background error")
             
-            completion(nil, apiKeyError.jsonError)
+            completion(false, apiKeyError.jsonError)
             return;
         }
         
@@ -501,7 +501,7 @@ public class Favorr: NSObject {
             if error != nil {
                 // show error
                 //                print(error!.localizedDescription)
-                completion(nil, apiKeyError.networkError)
+                completion(false, apiKeyError.networkError)
                 return
             }
             
@@ -511,13 +511,18 @@ public class Favorr: NSObject {
                     // success
                     // print("json:\(json)")
                     
-                    let ad_availability = json["ad_availability"] as? String
-                    completion(ad_availability, nil)
+                    if let result_code = json["result_code"] as? String, result_code == "success" {
+                        let ad_availability = json["ad_availability"] as? Bool
+                        completion(ad_availability, nil)
+                    } else {
+                        completion(false, apiKeyError.serverError)
+                    }
+
                 }
             } catch {
                 // print("error in JSONSerialization 5")
                 
-                completion(nil, apiKeyError.serverError)
+                completion(false, apiKeyError.serverError)
                 return;
             }
         }
