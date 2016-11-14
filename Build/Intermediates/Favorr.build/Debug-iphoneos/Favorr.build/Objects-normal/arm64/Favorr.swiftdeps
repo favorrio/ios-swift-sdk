@@ -11,64 +11,64 @@ provides-member:
 - ["CSo8UIDevice", ""]
 - ["CSo8UIDevice", "modelName"]
 provides-dynamic-lookup:
-- "ad_available"
-- "systemName"
-- "stopSession"
-- "applicationDidBecomeActive"
-- "checkAdAvailable"
-- "slowSession"
-- "systemVersion"
 - "pingTimer"
+- "ad_available"
+- "applicationDidBecomeActive"
 - "send_log"
-- "updateSessionWithCompletion"
-- "apiKey"
-- "startSession"
+- "stopSession"
 - "initAdView"
-- "adid_string"
-- "sharedInstance"
-- "modelName"
-- "modelName"
-- "applicationWillResignActive"
-- "updateSession"
-- "createTimer"
 - "uuid_string"
+- "applicationWillResignActive"
+- "systemName"
 - "sessionId"
 - "initWithApiKey"
+- "adid_string"
+- "sharedInstance"
+- "apiKey"
+- "systemVersion"
+- "updateSession"
 - "deviceName"
+- "isNetworking"
+- "createTimer"
+- "startSession"
+- "slowSession"
+- "updateSessionWithCompletion"
+- "modelName"
+- "modelName"
 depends-top-level:
-- "String"
-- "UIDevice"
-- !private "!="
+- "BooleanLiteralType"
+- "Error"
+- "NSObject"
+- "Favorr"
+- !private "UnicodeScalar"
+- !private "URLRequest"
+- !private "URL"
+- !private "JSONSerialization"
+- "Timer"
+- "Void"
 - !private "uname"
 - !private "+"
-- "=="
-- "Error"
+- !private "URLSession"
+- "Bool"
+- !private "!="
+- !private "StringLiteralType"
+- "TimeInterval"
+- !private "Int8"
+- "Int"
+- "CGRect"
+- !private "UInt8"
+- !private "ASIdentifierManager"
 - !private "CastingPrecedence"
+- !private "Mirror"
+- "UIDevice"
+- "=="
 - "AssignmentPrecedence"
 - !private "~="
-- !private "URLRequest"
-- !private "ASIdentifierManager"
-- !private "JSONSerialization"
-- "Void"
-- !private "URL"
-- "CGRect"
-- "Bool"
-- !private "URLSession"
 - !private "NotificationCenter"
-- "Timer"
-- "BooleanLiteralType"
-- "Favorr"
-- "Int"
-- !private "Int8"
-- !private "Mirror"
-- !private "utsname"
 - !private "Array"
-- "TimeInterval"
-- !private "UInt8"
+- "String"
 - "FavorrAdView"
-- !private "StringLiteralType"
-- !private "UnicodeScalar"
-- "NSObject"
+- !private "utsname"
 depends-member:
 - !private ["CSo19ASIdentifierManager", "advertisingIdentifier"]
 - ["CSo19ASIdentifierManager", "deinit"]
@@ -113,6 +113,7 @@ depends-member:
 - ["Ps9AnyObject", "initAdView"]
 - ["Ps9AnyObject", "initWithApiKey"]
 - !private ["Ps9AnyObject", "invalidate"]
+- ["Ps9AnyObject", "isNetworking"]
 - !private ["Ps9AnyObject", "isValid"]
 - !private ["Ps9AnyObject", "jsonObject"]
 - ["Ps9AnyObject", "modelName"]
@@ -183,6 +184,7 @@ depends-member:
 - ["Ps7CVarArg", "initAdView"]
 - ["Ps7CVarArg", "initWithApiKey"]
 - !private ["Ps7CVarArg", "invalidate"]
+- ["Ps7CVarArg", "isNetworking"]
 - !private ["Ps7CVarArg", "isValid"]
 - !private ["Ps7CVarArg", "jsonObject"]
 - ["Ps7CVarArg", "modelName"]
@@ -268,6 +270,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "initAdView"]
 - ["Ps28CustomDebugStringConvertible", "initWithApiKey"]
 - !private ["Ps28CustomDebugStringConvertible", "invalidate"]
+- ["Ps28CustomDebugStringConvertible", "isNetworking"]
 - !private ["Ps28CustomDebugStringConvertible", "isValid"]
 - !private ["Ps28CustomDebugStringConvertible", "jsonObject"]
 - ["Ps28CustomDebugStringConvertible", "modelName"]
@@ -357,6 +360,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "initAdView"]
 - ["Ps23CustomStringConvertible", "initWithApiKey"]
 - !private ["Ps23CustomStringConvertible", "invalidate"]
+- ["Ps23CustomStringConvertible", "isNetworking"]
 - !private ["Ps23CustomStringConvertible", "isValid"]
 - !private ["Ps23CustomStringConvertible", "jsonObject"]
 - ["Ps23CustomStringConvertible", "modelName"]
@@ -442,6 +446,7 @@ depends-member:
 - ["Ps9Equatable", "initAdView"]
 - ["Ps9Equatable", "initWithApiKey"]
 - !private ["Ps9Equatable", "invalidate"]
+- ["Ps9Equatable", "isNetworking"]
 - !private ["Ps9Equatable", "isValid"]
 - !private ["Ps9Equatable", "jsonError"]
 - !private ["Ps9Equatable", "jsonObject"]
@@ -533,6 +538,7 @@ depends-member:
 - ["C6Favorr6Favorr", "init"]
 - ["C6Favorr6Favorr", "initAdView"]
 - ["C6Favorr6Favorr", "initWithApiKey"]
+- ["C6Favorr6Favorr", "isNetworking"]
 - ["C6Favorr6Favorr", "modelName"]
 - ["C6Favorr6Favorr", "pingTimer"]
 - ["C6Favorr6Favorr", "send_log"]
@@ -598,6 +604,7 @@ depends-member:
 - ["Ps8Hashable", "initAdView"]
 - ["Ps8Hashable", "initWithApiKey"]
 - !private ["Ps8Hashable", "invalidate"]
+- ["Ps8Hashable", "isNetworking"]
 - !private ["Ps8Hashable", "isValid"]
 - !private ["Ps8Hashable", "jsonError"]
 - !private ["Ps8Hashable", "jsonObject"]
@@ -715,6 +722,7 @@ depends-member:
 - ["CSo8NSObject", "initAdView"]
 - ["CSo8NSObject", "initWithApiKey"]
 - !private ["CSo8NSObject", "invalidate"]
+- ["CSo8NSObject", "isNetworking"]
 - !private ["CSo8NSObject", "isValid"]
 - !private ["CSo8NSObject", "jsonObject"]
 - ["CSo8NSObject", "modelName"]
@@ -775,6 +783,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "initAdView"]
 - ["PSo16NSObjectProtocol", "initWithApiKey"]
 - !private ["PSo16NSObjectProtocol", "invalidate"]
+- ["PSo16NSObjectProtocol", "isNetworking"]
 - !private ["PSo16NSObjectProtocol", "isValid"]
 - !private ["PSo16NSObjectProtocol", "jsonObject"]
 - ["PSo16NSObjectProtocol", "modelName"]
@@ -987,6 +996,7 @@ depends-member:
 - ["Ps9_Hashable", "initAdView"]
 - ["Ps9_Hashable", "initWithApiKey"]
 - !private ["Ps9_Hashable", "invalidate"]
+- ["Ps9_Hashable", "isNetworking"]
 - !private ["Ps9_Hashable", "isValid"]
 - !private ["Ps9_Hashable", "jsonError"]
 - !private ["Ps9_Hashable", "jsonObject"]
@@ -1198,4 +1208,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-interface-hash: "b1914fe3d18d59558b6ad2326ade0ebb"
+interface-hash: "ff5aa9ddf362568e75a5d6dd2ff2c1bf"

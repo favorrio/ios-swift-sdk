@@ -15,80 +15,81 @@ provides-member:
 - ["OC6Favorr12FavorrAdView14requestAdError", ""]
 - ["OC6Favorr12FavorrAdView20FavorrImageColorType", ""]
 provides-dynamic-lookup:
-- "storeReadyFlg"
-- "install_icon"
-- "star_icon_1"
-- "defaultFavorrTextColor"
-- "favorrBackgroundColor"
-- "updateBackgroundColor"
+- "app_icon"
+- "star_icon_3"
+- "review_count_label"
+- "price_label"
 - "tapBanner"
-- "updateTextColor"
+- "productViewControllerDidFinish"
+- "defaultFavorrBackgroundColor"
 - "title_label"
-- "rootViewController"
-- "contentView"
-- "drawAd"
 - "star_icon_2"
 - "star_icon_5"
-- "banner_log_id"
-- "review_count_label"
-- "unitId"
-- "star_icon_3"
-- "favorrTextColor"
-- "trackId"
-- "download_icon"
-- "app_icon"
-- "price_label"
 - "storeViewController"
+- "unitId"
+- "rootViewController"
 - "banner_params"
+- "trackId"
+- "favorrTextColor"
+- "storeReadyFlg"
+- "isNetworking"
+- "favorrBackgroundColor"
+- "banner_log_id"
+- "star_icon_1"
+- "download_icon"
+- "requestAd"
+- "install_icon"
 - "activityIndicator"
 - "star_icon_4"
-- "requestAd"
-- "defaultFavorrBackgroundColor"
-- "productViewControllerDidFinish"
+- "contentView"
+- "updateBackgroundColor"
+- "updateTextColor"
+- "defaultFavorrTextColor"
+- "drawAd"
 depends-top-level:
-- !private "fatalError"
-- "UIViewController"
-- !private "-"
-- !private "Array"
-- "NSCoder"
-- "UIImageView"
-- "UIView"
-- "UILabel"
-- !private "+"
-- "=="
-- "CastingPrecedence"
-- "AssignmentPrecedence"
-- "UIActivityIndicatorView"
-- !private "Dictionary"
-- !private "URLSession"
-- "SKStoreProductViewController"
-- "UITapGestureRecognizer"
-- "UIColor"
-- !private "Bundle"
-- !private "UIFont"
-- !private "<"
-- !private "DispatchQueue"
-- !private "Void"
 - "BooleanLiteralType"
-- "CGRect"
-- "FavorrAdViewDelegate"
-- !private "Favorr"
-- !private "URL"
-- !private "JSONSerialization"
-- !private "URLRequest"
-- "Error"
-- "String"
-- !private "!="
-- !private "CGFloat"
-- !private "Float"
 - !private "UIImage"
-- !private "Int"
-- !private "/"
+- !private "Dictionary"
+- !private "<"
+- !private "Favorr"
+- "FavorrAdViewDelegate"
+- !private "Bundle"
+- !private "+"
+- "UITapGestureRecognizer"
+- "UIImageView"
+- "SKStoreProductViewController"
+- "String"
+- !private "JSONSerialization"
 - "UnicodeScalarType"
-- "SKStoreProductViewControllerDelegate"
-- "FavorrAdView"
+- !private "URL"
+- !private "DispatchQueue"
+- !private "URLRequest"
+- !private "Void"
 - !private "StringLiteralType"
+- "UIViewController"
+- !private "URLSession"
+- "UILabel"
+- "CGRect"
+- "Error"
+- "UIColor"
+- "SKStoreProductViewControllerDelegate"
+- "NSCoder"
+- !private "Float"
+- !private "Array"
+- !private "-"
+- !private "/"
+- "CastingPrecedence"
 - !private "SKStoreProductParameterITunesItemIdentifier"
+- !private "!="
+- "=="
+- "AssignmentPrecedence"
+- !private "Int"
+- "UIActivityIndicatorView"
+- !private "CGFloat"
+- !private "fatalError"
+- !private "UIFont"
+- "FavorrAdView"
+- "UIView"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps16AbsoluteValuable", "init"]
@@ -152,6 +153,7 @@ depends-member:
 - ["Ps9AnyObject", "installButtonColorType"]
 - ["Ps9AnyObject", "install_icon"]
 - !private ["Ps9AnyObject", "isHidden"]
+- ["Ps9AnyObject", "isNetworking"]
 - !private ["Ps9AnyObject", "jsonObject"]
 - !private ["Ps9AnyObject", "layer"]
 - !private ["Ps9AnyObject", "loadProduct"]
@@ -281,6 +283,7 @@ depends-member:
 - ["PSo15CALayerDelegate", "installButtonColorType"]
 - ["PSo15CALayerDelegate", "install_icon"]
 - !private ["PSo15CALayerDelegate", "isHidden"]
+- ["PSo15CALayerDelegate", "isNetworking"]
 - !private ["PSo15CALayerDelegate", "layer"]
 - ["PSo15CALayerDelegate", "price_label"]
 - ["PSo15CALayerDelegate", "productViewControllerDidFinish"]
@@ -391,6 +394,7 @@ depends-member:
 - ["Ps7CVarArg", "installButtonColorType"]
 - ["Ps7CVarArg", "install_icon"]
 - !private ["Ps7CVarArg", "isHidden"]
+- ["Ps7CVarArg", "isNetworking"]
 - !private ["Ps7CVarArg", "jsonObject"]
 - !private ["Ps7CVarArg", "layer"]
 - !private ["Ps7CVarArg", "loadProduct"]
@@ -522,6 +526,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "installButtonColorType"]
 - ["Ps28CustomDebugStringConvertible", "install_icon"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
+- ["Ps28CustomDebugStringConvertible", "isNetworking"]
 - !private ["Ps28CustomDebugStringConvertible", "jsonObject"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
 - !private ["Ps28CustomDebugStringConvertible", "loadProduct"]
@@ -685,6 +690,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "installButtonColorType"]
 - ["Ps23CustomStringConvertible", "install_icon"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
+- ["Ps23CustomStringConvertible", "isNetworking"]
 - !private ["Ps23CustomStringConvertible", "jsonObject"]
 - !private ["Ps23CustomStringConvertible", "layer"]
 - !private ["Ps23CustomStringConvertible", "loadProduct"]
@@ -839,6 +845,7 @@ depends-member:
 - ["Ps9Equatable", "installButtonColorType"]
 - ["Ps9Equatable", "install_icon"]
 - !private ["Ps9Equatable", "isHidden"]
+- ["Ps9Equatable", "isNetworking"]
 - !private ["Ps9Equatable", "jsonError"]
 - !private ["Ps9Equatable", "jsonObject"]
 - !private ["Ps9Equatable", "layer"]
@@ -941,6 +948,7 @@ depends-member:
 - !private ["C6Favorr6Favorr", "apiKey"]
 - ["C6Favorr6Favorr", "deinit"]
 - !private ["C6Favorr6Favorr", "deviceName"]
+- !private ["C6Favorr6Favorr", "isNetworking"]
 - !private ["C6Favorr6Favorr", "modelName"]
 - !private ["C6Favorr6Favorr", "send_log"]
 - !private ["C6Favorr6Favorr", "sessionId"]
@@ -1000,6 +1008,7 @@ depends-member:
 - ["C6Favorr12FavorrAdView", "installButtonColorType"]
 - ["C6Favorr12FavorrAdView", "install_icon"]
 - !private ["C6Favorr12FavorrAdView", "isHidden"]
+- ["C6Favorr12FavorrAdView", "isNetworking"]
 - ["C6Favorr12FavorrAdView", "price_label"]
 - ["C6Favorr12FavorrAdView", "productViewControllerDidFinish"]
 - ["C6Favorr12FavorrAdView", "requestAd"]
@@ -1117,6 +1126,7 @@ depends-member:
 - ["Ps8Hashable", "installButtonColorType"]
 - ["Ps8Hashable", "install_icon"]
 - !private ["Ps8Hashable", "isHidden"]
+- ["Ps8Hashable", "isNetworking"]
 - !private ["Ps8Hashable", "jsonError"]
 - !private ["Ps8Hashable", "jsonObject"]
 - !private ["Ps8Hashable", "layer"]
@@ -1284,6 +1294,7 @@ depends-member:
 - ["PSo8NSCoding", "installButtonColorType"]
 - ["PSo8NSCoding", "install_icon"]
 - !private ["PSo8NSCoding", "isHidden"]
+- ["PSo8NSCoding", "isNetworking"]
 - !private ["PSo8NSCoding", "layer"]
 - !private ["PSo8NSCoding", "loadProduct"]
 - !private ["PSo8NSCoding", "present"]
@@ -1391,6 +1402,7 @@ depends-member:
 - ["CSo8NSObject", "installButtonColorType"]
 - ["CSo8NSObject", "install_icon"]
 - !private ["CSo8NSObject", "isHidden"]
+- ["CSo8NSObject", "isNetworking"]
 - !private ["CSo8NSObject", "jsonObject"]
 - !private ["CSo8NSObject", "layer"]
 - !private ["CSo8NSObject", "loadProduct"]
@@ -1492,6 +1504,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "installButtonColorType"]
 - ["PSo16NSObjectProtocol", "install_icon"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
+- ["PSo16NSObjectProtocol", "isNetworking"]
 - !private ["PSo16NSObjectProtocol", "jsonObject"]
 - !private ["PSo16NSObjectProtocol", "layer"]
 - !private ["PSo16NSObjectProtocol", "loadProduct"]
@@ -1743,6 +1756,7 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "installButtonColorType"]
 - ["PSo29UIAccessibilityIdentification", "install_icon"]
 - !private ["PSo29UIAccessibilityIdentification", "isHidden"]
+- ["PSo29UIAccessibilityIdentification", "isNetworking"]
 - !private ["PSo29UIAccessibilityIdentification", "layer"]
 - ["PSo29UIAccessibilityIdentification", "price_label"]
 - ["PSo29UIAccessibilityIdentification", "productViewControllerDidFinish"]
@@ -1829,6 +1843,7 @@ depends-member:
 - ["PSo12UIAppearance", "installButtonColorType"]
 - ["PSo12UIAppearance", "install_icon"]
 - !private ["PSo12UIAppearance", "isHidden"]
+- ["PSo12UIAppearance", "isNetworking"]
 - !private ["PSo12UIAppearance", "layer"]
 - ["PSo12UIAppearance", "price_label"]
 - ["PSo12UIAppearance", "productViewControllerDidFinish"]
@@ -1908,6 +1923,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "installButtonColorType"]
 - ["PSo21UIAppearanceContainer", "install_icon"]
 - !private ["PSo21UIAppearanceContainer", "isHidden"]
+- ["PSo21UIAppearanceContainer", "isNetworking"]
 - !private ["PSo21UIAppearanceContainer", "layer"]
 - !private ["PSo21UIAppearanceContainer", "loadProduct"]
 - !private ["PSo21UIAppearanceContainer", "present"]
@@ -2002,6 +2018,7 @@ depends-member:
 - ["PSo17UICoordinateSpace", "installButtonColorType"]
 - ["PSo17UICoordinateSpace", "install_icon"]
 - !private ["PSo17UICoordinateSpace", "isHidden"]
+- ["PSo17UICoordinateSpace", "isNetworking"]
 - !private ["PSo17UICoordinateSpace", "layer"]
 - ["PSo17UICoordinateSpace", "price_label"]
 - ["PSo17UICoordinateSpace", "productViewControllerDidFinish"]
@@ -2080,6 +2097,7 @@ depends-member:
 - ["PSo13UIDynamicItem", "installButtonColorType"]
 - ["PSo13UIDynamicItem", "install_icon"]
 - !private ["PSo13UIDynamicItem", "isHidden"]
+- ["PSo13UIDynamicItem", "isNetworking"]
 - !private ["PSo13UIDynamicItem", "layer"]
 - ["PSo13UIDynamicItem", "price_label"]
 - ["PSo13UIDynamicItem", "productViewControllerDidFinish"]
@@ -2159,6 +2177,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "installButtonColorType"]
 - ["PSo18UIFocusEnvironment", "install_icon"]
 - !private ["PSo18UIFocusEnvironment", "isHidden"]
+- ["PSo18UIFocusEnvironment", "isNetworking"]
 - !private ["PSo18UIFocusEnvironment", "layer"]
 - !private ["PSo18UIFocusEnvironment", "loadProduct"]
 - !private ["PSo18UIFocusEnvironment", "present"]
@@ -2239,6 +2258,7 @@ depends-member:
 - ["PSo11UIFocusItem", "installButtonColorType"]
 - ["PSo11UIFocusItem", "install_icon"]
 - !private ["PSo11UIFocusItem", "isHidden"]
+- ["PSo11UIFocusItem", "isNetworking"]
 - !private ["PSo11UIFocusItem", "layer"]
 - ["PSo11UIFocusItem", "price_label"]
 - ["PSo11UIFocusItem", "productViewControllerDidFinish"]
@@ -2341,6 +2361,7 @@ depends-member:
 - ["CSo11UIResponder", "installButtonColorType"]
 - ["CSo11UIResponder", "install_icon"]
 - !private ["CSo11UIResponder", "isHidden"]
+- ["CSo11UIResponder", "isNetworking"]
 - !private ["CSo11UIResponder", "layer"]
 - !private ["CSo11UIResponder", "loadProduct"]
 - !private ["CSo11UIResponder", "present"]
@@ -2421,6 +2442,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "installButtonColorType"]
 - ["PSo30UIResponderStandardEditActions", "install_icon"]
 - !private ["PSo30UIResponderStandardEditActions", "isHidden"]
+- ["PSo30UIResponderStandardEditActions", "isNetworking"]
 - !private ["PSo30UIResponderStandardEditActions", "layer"]
 - !private ["PSo30UIResponderStandardEditActions", "loadProduct"]
 - !private ["PSo30UIResponderStandardEditActions", "present"]
@@ -2509,6 +2531,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "installButtonColorType"]
 - ["PSo18UITraitEnvironment", "install_icon"]
 - !private ["PSo18UITraitEnvironment", "isHidden"]
+- ["PSo18UITraitEnvironment", "isNetworking"]
 - !private ["PSo18UITraitEnvironment", "layer"]
 - !private ["PSo18UITraitEnvironment", "loadProduct"]
 - !private ["PSo18UITraitEnvironment", "present"]
@@ -2596,6 +2619,7 @@ depends-member:
 - ["CSo6UIView", "installButtonColorType"]
 - ["CSo6UIView", "install_icon"]
 - !private ["CSo6UIView", "isHidden"]
+- ["CSo6UIView", "isNetworking"]
 - !private ["CSo6UIView", "layer"]
 - ["CSo6UIView", "price_label"]
 - ["CSo6UIView", "productViewControllerDidFinish"]
@@ -2719,6 +2743,7 @@ depends-member:
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "installButtonColorType"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "install_icon"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "isNetworking"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layer"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "price_label"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "productViewControllerDidFinish"]
@@ -2852,6 +2877,7 @@ depends-member:
 - ["Ps9_Hashable", "installButtonColorType"]
 - ["Ps9_Hashable", "install_icon"]
 - !private ["Ps9_Hashable", "isHidden"]
+- ["Ps9_Hashable", "isNetworking"]
 - !private ["Ps9_Hashable", "jsonError"]
 - !private ["Ps9_Hashable", "jsonObject"]
 - !private ["Ps9_Hashable", "layer"]
@@ -3156,4 +3182,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-interface-hash: "7ccd8c0cd7efa323c7b6b21fb3a89d78"
+interface-hash: "063d4a745153089bb8b9ab2481464b7b"
