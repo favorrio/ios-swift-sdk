@@ -1,4 +1,4 @@
-![Favorr](https://favorr.io/img3/adap_logo-01.png)
+![Favorr](https://favorr.io/images/favorr_logo_02.png)
 
 Favorr cross promotion network is a native ad network for app developers to promote each others apps.
 This repository holds the source code for the iOS of Favorr Cross Promotion Network Swft & Objective-C SDK
