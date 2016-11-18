@@ -2,7 +2,7 @@
 
 Favorr cross promotion network is a native ad network for app developers to promote each others apps.
 This repository holds the source code for the iOS of Favorr Cross Promotion Network Swft & Objective-C SDK
-* **Favorr Community:** Favorr is an app developers community to make progress. Favorr has web based service for reviews on Appstore and  feedback from fellow developers and SDK based service for installs
+* **Favorr Community:** Favorr is an app developers community to make progress. Favorr has [web based service for reviews on Appstore and  feedback from fellow developers](https://favorr.io) and [SDK based service for installs](https://sdk.favorr.io).
 
 ## Features
 * **Simple** Favorr cross promotion network SDK is easy to integrate
@@ -35,13 +35,6 @@ Prerequisites:
 
 * Building Favorr Cross Promotion SDK requires Xcode 8.x.
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more details!
-
-This project adheres to the [Contributor Covenant Code of Conduct](https://sdk.favorr.io/conduct).
-By participating, you are expected to uphold this code. Please report
-unacceptable behavior to [sdk@favorr.io](mailto:sdk@favorr.io).
 
 ## License
 
