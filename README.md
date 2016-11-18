@@ -1,4 +1,4 @@
-![Favorr](https://favorr.io/images/favorr_logo_02.png)
+![Favorr](https://favorr.io/images/favorr_logo_02_150x150.png)
 
 Favorr cross promotion network is a native ad network for app developers to promote each others apps.
 This repository holds the source code for the iOS of Favorr Cross Promotion Network Swft & Objective-C SDK
@@ -11,7 +11,7 @@ This repository holds the source code for the iOS of Favorr Cross Promotion Netw
 
 ## Getting Started
 
-Please see the detailed instructions in our docs to add [Favorr Cross Promotion SDK](https://sdk.favorr.io/docs)to  your Xcode project.
+Please see the detailed instructions in our docs to add [Favorr Cross Promotion SDK](https://sdk.favorr.io/docs) to your Xcode project.
 
 ## Documentation
 
@@ -29,12 +29,11 @@ The documentation can be found at [sdk.favorr.io/docs](https://sdk.favorr.io/doc
 
 ## Building Favorr Cross Promotion Network SDK
 
-In case you don't want to use the precompiled version, you can build Realm yourself from source.
+In case you don't want to use the precompiled version, you can build Favorr Cross Promotion SDK yourself from source.
 
 Prerequisites:
 
-* Building Realm requires Xcode 8.x.
-* If cloning from git, submodules are required: `git submodule update --init —recursive`.
+* Building Favorr Cross Promotion SDK requires Xcode 8.x.
 
 ## Contributing
 
